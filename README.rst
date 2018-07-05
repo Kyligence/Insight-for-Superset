@@ -71,8 +71,8 @@ Install step
      Press ctrl+p, ctrl+q(use the escape sequence), detach docker container
 
 
-start environments
-^^^^^^^^^^^^^^^^^^^
+Start environments:
+
 ============================= ============== ============================================
 environment                    default         comments
 ============================= ============== ============================================
