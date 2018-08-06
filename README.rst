@@ -1,5 +1,5 @@
-Kyligence Insight for Superset Manual contents
-===============================================
+Kyligence Insight for Superset contents
+=======================================
 
 * `Kyligence Insight for Superset 中文文档`_
 * `Kyligence Insight for Superset Manual in english`_
