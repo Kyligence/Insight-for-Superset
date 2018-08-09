@@ -33,7 +33,9 @@
 快速上手
 ========
 
-准备工作都做完了, 让我们一条命令启动Kyligence Insight for Superset! ::
+**特别注意** , 如果您用 **快速上手** 章节启动的Kyligence Insight for Superset, 您是无法升级的. 因为您的元数据没有做外部存储.
+
+到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
   $ docker run -it -p <本地端口>:8088 -v /<绝对路径>/default.yaml:/usr/local/superset/data/default.yaml --name <容器名称> kyligence/superset-kylin:latest
 
@@ -43,8 +45,6 @@
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
 现在打开浏览器访问http://127.0.0.1:8088 , 使用Kylin的用户名和密码即可登录Kyligence Insight for Superset.
-
-**特别注意** , 如果您用 **快速上手** 章节启动的Kyligence Insight for Superset, 您是无法升级的. 因为您的元数据没有做外部存储.
 
 
 使用MySQL作为元数据启动Kyligence Insight for Superset
@@ -73,7 +73,7 @@
 
      mysql://root:root@superset-db:3306/superset
 
-4. 准备工作完毕, 我们现在启动Kyligence Insight for Superset容器 ::
+4. 到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
      $ docker run -it -p <本机端口>:8088 \
      --link <db container name>:<db container name> \
@@ -166,7 +166,7 @@ Kyligence Insight for Superset使用
 
 如果您使用Docker部署的Kyligence Insight for Superset, 升级操作很简单, 只需要停止原容器, 再开启新容器即可 ::
 
-  docker rm -f kyligence/superset-kylin:latest
+  docker rm -f superset-kylin
   docker pull kyligence/superset-kylin
 
 然后再按照 **使用MySQL作为元数据启动Kyligence Insight for Superset** 中第4步, 开启Docker服务即可.
