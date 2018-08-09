@@ -89,7 +89,7 @@
      --name superset-kylin \
      kyligence/superset-kylin:latest
 
-5. 按照提示输入您的KyAccount账户和密码, 以便免费使用Kyligence Insight for Superset ::
+5. 按照提示输入您的Kyligence Account账户和密码, 以便免费使用Kyligence Insight for Superset ::
 
      Welcome to Kyligence Insight for Superset!
      In order to activate your evaluation, you need to login with your Kyligence Account.
