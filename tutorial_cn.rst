@@ -9,7 +9,7 @@
 
 需要注册一下 `Kyligence Account`_ 账户, 以便您免费激活Kyligence Insight for Superset.
 
-最后需要下载一下 `Kyligence Insight for Superset配置文件`_ , 以便配置Superset各种启动参数.
+最后需要下载一下 `Kyligence Insight for Superset配置文件`_ (或者新建一个default.yaml文件，拷贝链接内的内容到新文件), 以便配置Superset各种启动参数.
 
 如果您想使用MapBox交互式地图服务, 还需要准备一个 `Mapbox Token`_ (可选项)
 
