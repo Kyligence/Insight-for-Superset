@@ -1,4 +1,4 @@
-Kyligence Insight for Superset contents  【`English`_】
+Kyligence Insight for Superset contents  [`English`_]
 =======================================
 
 * `Kyligence Insight for Superset 安装及升级手册`_

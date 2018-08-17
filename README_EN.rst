@@ -1,4 +1,4 @@
-Kyligence Insight for Superset contents  【`Chinese`_】
+Kyligence Insight for Superset contents  [`Chinese`_]
 =======================================
 
 * `Kyligence Insight for Superset Installation and Upgrade Manual`_
