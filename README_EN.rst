@@ -1,7 +1,7 @@
 Kyligence Insight for Superset contents  【`Chinese`_】
 =======================================
 
-* `Kyligence Insight for Superset Installation and upgrade manual`_
+* `Kyligence Insight for Superset Installation and Upgrade Manual`_
 * `Kyligence Insight for Superset User Manual`_
 
 .. _`Kyligence Insight for Superset Installation and upgrade manual`: ./Documents/tutorial_en.rst
