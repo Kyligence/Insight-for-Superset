@@ -107,3 +107,5 @@ superset.db
 superset_config_dev.py
 INIT_FINISHED
 REGISTER_FINISHED
+
+.DS_Store
