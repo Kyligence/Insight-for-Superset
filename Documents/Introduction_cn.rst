@@ -60,11 +60,11 @@ Kyligence Insight for Superset
 | 4. Docker容器化部署Superset，一键启动，降低部署和升级门槛。
 | 5. 自动适配Kyligence/Kylin 查询语法
 
-.. |image0| image:: ./images/introduction_cn/01.png
+.. |image0| image:: ./images/Introduction_cn/01.png
 
-.. |image1| image:: ./images/introduction_cn/02.png
+.. |image1| image:: ./images/Introduction_cn/02.png
    
-.. |image2| image:: ./images/introduction_cn/03.png
+.. |image2| image:: ./images/Introduction_cn/03.png
 
-.. |image3| image:: ./images/introduction_cn/04.jpg
+.. |image3| image:: ./images/Introduction_cn/04.jpg
    

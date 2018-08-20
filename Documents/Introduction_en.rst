@@ -58,7 +58,7 @@ About Kyligence Insight for Superset
 
 To better serve Kyligence or Kylin users, Kyligence Insight for Superset
 is the customized Superset that enriches Kylin ecosystem, providing
-alternative analytics option for end-users. 
+alternative analytics option for end-users.
 
 Kyligence Insight for Superset is tailored to be seamlessly integrated
 with Kyligence or Kylin, that provides smooth analytical experience from
@@ -86,7 +86,7 @@ upgrade Kyligence Insight for Superset with Docker.
 pattern is fine-tuned to work best on Kyligence or Kylin data engine.
 
 
-.. |image0| image:: ./images/introduction_en/01.png
-.. |image1| image:: ./images/introduction_en/02.png
-.. |image2| image:: ./images/introduction_en/03.png
-.. |image3| image:: ./images/introduction_en/04.jpg
+.. |image0| image:: ./images/Introduction_en/01.png
+.. |image1| image:: ./images/Introduction_en/02.png
+.. |image2| image:: ./images/Introduction_en/03.png
+.. |image3| image:: ./images/Introduction_en/04.jpg
