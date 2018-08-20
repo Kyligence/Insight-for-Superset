@@ -1,0 +1,192 @@
+<p><span style="font-size: 24pt;"><strong>About Kyligence Insight for Superset</strong></span></p>
+<p>To better serve Kyligence or Kylin users, Kyligence Insight for Superset is the customized Superset that enriches Kylin ecosystem, providing alternative analytics option for end-users. </p>
+<p>Kyligence Insight for Superset is tailored to be seamlessly integrated with Kyligence or Kylin, that provides smooth analytical experience from Kyligence or Kylin to Superset, reduces duplicated manual efforts, and speed up time-to-insight.</p>
+<p>You can learn and give feedback on this GitHub <a href="https://github.com/Kyligence/Insight-for-Superset">project .</a></p>
+<h1 id="prerequisites">Prerequisites</h1>
+<p>This guide shows you how to get a quick start with Kyligence Insight for Superset. It assumes that you have already installed the Docker service. If you haven't installed it yet, you can refer the following links to install it.</p>
+<ul>
+	<li><a href="https://docs.docker.com/docker-for-windows/install/">Install Docker for Windows</a></li>
+	<li><a href="https://docs.docker.com/docker-for-mac/install/">Install Docker for Mac</a></li>
+	<li><a href="https://docs.docker.com/install/linux/docker-ce/centos/">Install Docker for CentOS</a></li>
+</ul>
+<p>It also requires sign up for a <a href="https://account.kyligence.io/#/extra-signup?lang=en&amp;source=superset">Kyligence Account</a>, then you can activate Kyligence Insight for Superset for free.</p>
+<p>And then you need to download this file <a href="https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/default.yaml">Kyligence Insight for Superset config file</a> (or you can just create a file called 'default.yaml' locally, then copy the content in the config file mentioned above), so that we can make some config to bootstrap Superset.</p>
+<p>If you want to use interactive map(base on MapBox), you also need to prepare a <a href="https://www.mapbox.com/help/how-access-tokens-work/">Mapbox Token</a> which is optional if you don't use interactive map.</p>
+<p>You will also need to know the hostname and port of Kylin instance. The administrator of Kylin cluster should be able to provide you this information.</p>
+<h1 id="modify-default.yaml">Modify default.yaml</h1>
+<p>Go to the config file you have download(or created) above, and modify it due to your environment. :</p>
+<pre><code>superset:
+  sqlalchemy_database_uri: &lt;SQLAlchemy DSN, if empty, superset will use SQLlite instead&gt;
+  sqllab_timeout: &lt;SQLLab timeout&gt;
+  mapbox_api_key: &lt;mapbox token&gt;
+  kap_host: &lt;Kylin hostname or IP&gt;
+  kap_port: &lt;Kylin port&gt;
+  kap_endpoint: /kylin/api
+  kap_api_version: v1</code></pre>
+<h1 id="quick-start">Quick Start</h1>
+<p><strong>Note:</strong> you would not be able to upgrade Kyligence Insight for Superset with quick start launch, because you don't have external metadata store configured.</p>
+<p>As you've done all the preparations above, let us start Kyligence Insight for Superset with the following command :</p>
+<pre><code>$ docker run -it -p &lt;local port&gt;:8088 -e -v /&lt;absloute path&gt;/default.yaml:/usr/local/superset/data/default.yaml --name &lt;container name&gt; kyligence/superset-kylin:latest
+
+
+e.g. go the directory where default.yaml locate, then run :
+
+$ docker run -it -p 8088:8088 -v `pwd`/default.yaml:/usr/local/superset/data/default.yaml --name superset-kylin kyligence/superset-kylin:latest</code></pre>
+<p>After executing the command successfully, you can type Ctrl+P and Ctrl+Q continuously, so that docker can run as a daemon process.</p>
+<p>Now open a browser window and go to <a class="uri" href="http://127.0.0.1:8088">http://127.0.0.1:8088</a>. You can log in to Kyligence Insight for Superset with the same username and password you use to access Kylin.</p>
+<h1 id="use-mysql-as-metadata-store-to-start-kyligence-insight-for-superset">Use MySQL as metadata store to start Kyligence Insight for Superset</h1>
+<p>In the quick start section above, we did not use an external database as the meta store of Kyligence Insight for Superset. If you want to operate it long run or upgrade it in the future, please setup an external database as the metadata store. In the following, we will use MySQL as an example to show you how to setup an external metadata store.</p>
+<ol style="list-style-type: decimal;">
+	<li>
+<p>(Optional) If you don't have a MySQL instance, you can use docker to start one. If you already have a MySQL service, you can skip this step. :</p>
+<pre><code>$ docker pull mysql:5.7
+$ docker run -itd -e -p &lt;local port&gt;:3306 MYSQL_ROOT_PASSWORD=&lt;database password&gt; -e MYSQL_DATABASE=&lt;database name&gt; --name &lt;database container name&gt; mysql:5.7
+
+e.g.:
+$ docker pull mysql:5.7
+$ docker run -itd -e -p 3306:3306 MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=superset --name superset-db mysql:5.7</code></pre>
+</li>
+	<li>
+<p>Get the latest version of Kyligence Insight for Superset image: :</p>
+<pre><code>$ docker pull kyligence/superset-kylin:latest</code></pre>
+</li>
+	<li>
+<p>Prepare the MySQL connection string, so that Kyligence Insight for Superset can connect to the MySQL instance and store metadata there: :</p>
+<pre><code>mysql://&lt;db username&gt;:&lt;db password&gt;@&lt;database host name&gt;:&lt;db port&gt;/&lt;database&gt;
+
+### If you are using MySQL started with Docker, then it is
+
+mysql://root:root@superset-db:3306/superset</code></pre>
+</li>
+	<li>
+<p>Then we can launch the container of Kyligence Insight for Superset with the following: :</p>
+<pre><code>$ docker run -it -p &lt;local port&gt;:8088 \
+--link &lt;database container name&gt;:&lt;database host name&gt; \
+-v /&lt;absloute path&gt;/default.yaml:/usr/local/superset/data/default.yaml \
+--name &lt;container name&gt; \
+kyligence/superset-kylin:latest
+
+### If you are using MySQL started with Docker, then it is:
+
+$ docker run -it -p 8088:8088 \
+--link superset-db:superset-db \
+-v `pwd`/default.yaml:/usr/local/superset/data/default.yaml \
+--name superset-kylin \
+kyligence/superset-kylin:latest</code></pre>
+</li>
+	<li>
+<p>Follow the prompts to enter your Kyligence account credential, then you can start using Kyligence Insight for Superset. :</p>
+<pre><code>Welcome to Kyligence Insight for Superset!
+In order to activate your evaluation, you need to login with your Kyligence Account.
+
+If you do not have a Kyligence Account, please register at:
+https://account.kyligence.io/#/extra-signup?lang=en&amp;source=superset
+
+To learn more about the activation, please refer to following URL:
+http://kyligence.io/2018/07/11/kyligence-insight-for-superset-data-visualizations-enriching-apache-kylin-ecosystem/</code></pre>
+<pre><code>Please enter account: username
+
+Please enter password: password</code></pre>
+</li>
+	<li>
+<p>The local port 8088 should be open for Kyligence Insight for Superset service, you can verify it with the docker ps command. :</p>
+<pre><code>$ docker ps -a
+ONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS                            PORTS                    NAMES
+3b059d2723cb        kyligence/superset-kylin:latest   "bootstrap.sh"           2 days ago          Up 3 seconds (health: starting)   0.0.0.0:8088-&gt;8088/tcp   superset-kylin</code></pre>
+</li>
+</ol>
+<p>You can type Ctrl+P and Ctrl+Q continuously to make docker run as a daemon process.</p>
+<h1 id="default.yaml-paramaters">default.yaml Paramaters</h1>
+<table>
+<thead>
+<tr class="header">
+<th>key</th>
+<th>comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>kap_host</td>
+<td>Kylin host</td>
+</tr>
+<tr class="even">
+<td>-----------------------------</td>
+<td>--------------------------------------------</td>
+</tr>
+<tr class="odd">
+<td>kap_port</td>
+<td>Kylin port</td>
+</tr>
+<tr class="even">
+<td>-----------------------------</td>
+<td>--------------------------------------------</td>
+</tr>
+<tr class="odd">
+<td>kap_endpoint</td>
+<td>Kylin API prefix</td>
+</tr>
+<tr class="even">
+<td>-----------------------------</td>
+<td>--------------------------------------------</td>
+</tr>
+<tr class="odd">
+<td>kap_api_version</td>
+<td>Kylin API version &lt;v1|v2&gt;</td>
+</tr>
+<tr class="even">
+<td>-----------------------------</td>
+<td>--------------------------------------------</td>
+</tr>
+<tr class="odd">
+<td>mapbox_api_key</td>
+<td>Mapbox API token</td>
+</tr>
+<tr class="even">
+<td>-----------------------------</td>
+<td>--------------------------------------------</td>
+</tr>
+<tr class="odd">
+<td>sqlalchemy_database_uri</td>
+<td>Superset metadata DSN</td>
+</tr>
+<tr class="even">
+<td>-----------------------------</td>
+<td>--------------------------------------------</td>
+</tr>
+<tr class="odd">
+<td>sqllab_timeout</td>
+<td>SQLLab timeout(second)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="how-to-use-kyligence-insight-for-superset">How to use Kyligence Insight for Superset</h1>
+<p>Once you start Kyligence Insight for Superset, you can start a browser window to access its user interface.</p>
+<ol style="list-style-type: decimal;">
+	<li>
+<p>Login with Kylin username and password</p>
+<p><img src="https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/Documents/images/Insight_login_en.png" alt="image" /></p>
+</li>
+	<li>
+<p>Click Kylin Refresh to synchronize cubes in Kylin</p>
+<p><img src="https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/Documents/images/Insight_refresh_en.png" alt="image" /></p>
+</li>
+	<li>
+<p>Click Kylin Cubes to list all available cubes</p>
+<p><img src="https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/Documents/images/Insight_list_cubes_en.png" alt="image" /></p>
+</li>
+	<li>
+<p>Click the name of a cube, you can start query the cube</p>
+<p><img src="https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/Documents/images/Insight_explore_en.png" alt="image" /></p>
+</li>
+	<li>
+<p>Edit and run your query in SQL Lab</p>
+<p><img src="https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/Documents/images/Insight_SQLLab_en.png" alt="image" /></p>
+</li>
+</ol>
+<h1 id="upgrade">Upgrade</h1>
+<p>If you use Docker to run Kyligence Insight for Superset, the upgrade is super simple, just stop and remove the original container and open new one. :</p>
+<pre><code>docker rm -f superset-kylin
+docker pull kyligence/superset-kylin:latest</code></pre>
+<p>Then follow step #4 in the section <strong>Use MySQL as metadata store to start Kyligence Insight for Superset</strong> to start container again.</p>
+<p><strong>Note</strong>: you would not be able to upgrade Kyligence Insight for Superset with quick start launch, because you don't have external metadata store configured.</p>
+<p>If you encounter any problems , you can <strong>create a issue</strong> at the following link. Give us feedback: <a class="uri" href="https://github.com/Kyligence/Insight-for-Superset/issues">https://github.com/Kyligence/Insight-for-Superset/issues</a></p>
