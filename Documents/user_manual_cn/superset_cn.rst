@@ -79,25 +79,25 @@ Kyligence的管理员用户默认为Superset的管理员(Admin)，拥有全部�
 
 更改后，ANALYST用户没有下载CSV的权限 |image23|
 
-.. |image0| image:: ./01.png
-.. |image1| image:: ./02.png
-.. |image2| image:: ./03.png
-.. |image3| image:: ./04.png
-.. |image4| image:: ./05.png
-.. |image5| image:: ./06.png
-.. |image6| image:: ./07.png
-.. |image7| image:: ./08.png
-.. |image8| image:: ./09.png
-.. |image9| image:: ./10.png
-.. |image10| image:: ./11.png
-.. |image11| image:: ./12.png
-.. |image12| image:: ./13.png
-.. |image13| image:: ./14.png
-.. |image14| image:: ./15.png
-.. |image17| image:: ./18.png
-.. |image18| image:: ./19.png
-.. |image19| image:: ./20.png
-.. |image20| image:: ./21.png
-.. |image21| image:: ./22.png
-.. |image22| image:: ./23.png
-.. |image23| image:: ./24.png
+.. |image0| image:: ../images/user_manual_cn/01.png
+.. |image1| image:: ../images/user_manual_cn/02.png
+.. |image2| image:: ../images/user_manual_cn/03.png
+.. |image3| image:: ../images/user_manual_cn/04.png
+.. |image4| image:: ../images/user_manual_cn/05.png
+.. |image5| image:: ../images/user_manual_cn/06.png
+.. |image6| image:: ../images/user_manual_cn/07.png
+.. |image7| image:: ../images/user_manual_cn/08.png
+.. |image8| image:: ../images/user_manual_cn/09.png
+.. |image9| image:: ../images/user_manual_cn/10.png
+.. |image10| image:: ../images/user_manual_cn/11.png
+.. |image11| image:: ../images/user_manual_cn/12.png
+.. |image12| image:: ../images/user_manual_cn/13.png
+.. |image13| image:: ../images/user_manual_cn/14.png
+.. |image14| image:: ../images/user_manual_cn/15.png
+.. |image17| image:: ../images/user_manual_cn/18.png
+.. |image18| image:: ../images/user_manual_cn/19.png
+.. |image19| image:: ../images/user_manual_cn/20.png
+.. |image20| image:: ../images/user_manual_cn/21.png
+.. |image21| image:: ../images/user_manual_cn/22.png
+.. |image22| image:: ../images/user_manual_cn/23.png
+.. |image23| image:: ../images/user_manual_cn/24.png

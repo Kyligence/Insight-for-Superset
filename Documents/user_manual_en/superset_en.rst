@@ -30,9 +30,6 @@ appropriate values in each column, such as the time filter value in the
 red box, the dimensions and metrics in the blue box, and the number of
 rows in the yellow box.
 
-.. figure:: ./04.png
-   :alt: 
-
 Then click **Run Query** in the upper left corner or the middle of the
 blank space to run the query and get the result set chart. |image3|
 
@@ -104,28 +101,28 @@ Granted the new role to ANALYST users in **Security-List Users**
 As a result , ANALYST users do not have permission to download CSV
 |image24|
 
-.. |image0| image:: ./01.png
-.. |image1| image:: ./02.png
-.. |image2| image:: ./03.png
-.. |image3| image:: ./05.png
-.. |image4| image:: ./06.png
-.. |image5| image:: ./07.png
-.. |image6| image:: ./22.png
-.. |image7| image:: ./23.png
-.. |image8| image:: ./24.png
-.. |image9| image:: ./25.png
-.. |image10| image:: ./26.png
-.. |image11| image:: ./08.png
-.. |image12| image:: ./09.png
-.. |image13| image:: ./10.png
-.. |image14| image:: ./11.png
-.. |image15| image:: ./12.png
-.. |image16| image:: ./13.png
-.. |image17| image:: ./14.png
-.. |image18| image:: ./15.png
-.. |image19| image:: ./16.png
-.. |image20| image:: ./17.png
-.. |image21| image:: ./18.png
-.. |image22| image:: ./19.png
-.. |image23| image:: ./20.png
-.. |image24| image:: ./21.png
+.. |image0| image:: ../images/user_manual_en/01.png
+.. |image1| image:: ../images/user_manual_en/02.png
+.. |image2| image:: ../images/user_manual_en/03.png
+.. |image3| image:: ../images/user_manual_en/05.png
+.. |image4| image:: ../images/user_manual_en/06.png
+.. |image5| image:: ../images/user_manual_en/07.png
+.. |image6| image:: ../images/user_manual_en/22.png
+.. |image7| image:: ../images/user_manual_en/23.png
+.. |image8| image:: ../images/user_manual_en/24.png
+.. |image9| image:: ../images/user_manual_en/25.png
+.. |image10| image:: ../images/user_manual_en/26.png
+.. |image11| image:: ../images/user_manual_en/08.png
+.. |image12| image:: ../images/user_manual_en/09.png
+.. |image13| image:: ../images/user_manual_en/10.png
+.. |image14| image:: ../images/user_manual_en/11.png
+.. |image15| image:: ../images/user_manual_en/12.png
+.. |image16| image:: ../images/user_manual_en/13.png
+.. |image17| image:: ../images/user_manual_en/14.png
+.. |image18| image:: ../images/user_manual_en/15.png
+.. |image19| image:: ../images/user_manual_en/16.png
+.. |image20| image:: ../images/user_manual_en/17.png
+.. |image21| image:: ../images/user_manual_en/18.png
+.. |image22| image:: ../images/user_manual_en/19.png
+.. |image23| image:: ../images/user_manual_en/20.png
+.. |image24| image:: ../images/user_manual_en/21.png
