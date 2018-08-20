@@ -29,6 +29,7 @@ Click on the cube name in **Sources-Kylin Cubes** to analyze. Select the
 appropriate values in each column, such as the time filter value in the
 red box, the dimensions and metrics in the blue box, and the number of
 rows in the yellow box.
+|image25|
 
 Then click **Run Query** in the upper left corner or the middle of the
 blank space to run the query and get the result set chart. |image3|
@@ -126,3 +127,4 @@ As a result , ANALYST users do not have permission to download CSV
 .. |image22| image:: ../images/user_manual_en/19.png
 .. |image23| image:: ../images/user_manual_en/20.png
 .. |image24| image:: ../images/user_manual_en/21.png
+.. |image25| image:: ../images/user_manual_en/04.png
