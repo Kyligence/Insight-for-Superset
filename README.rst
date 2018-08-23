@@ -19,7 +19,7 @@ English
 .. _`Kyligence Insight for Superset 使用手册`: ./Documents/user_manual_cn/superset_cn.rst
 .. _`Kyligence Insight for Superset Installation and upgrade manual`: ./Documents/tutorial_en.rst
 .. _`Kyligence Insight for Superset User Manual`: ./Documents/user_manual_en/superset_en.rst
-.. _`Kyligence Insight for Superset Introduction`: ./Documents/Introduction_en.rst
-.. _`Kyligence Insight for Superset 简介`: ./Documents/Introduction_cn.rst
+.. _`Kyligence Insight for Superset Introduction`: ./Documents/introduction_en.rst
+.. _`Kyligence Insight for Superset 简介`: ./Documents/introduction_cn.rst
 .. _`Kyligence Insight for Superset Demo Video`: https://youtu.be/xDrbib-X9ho
 .. _`Kyligence Insight for Superset Demo 视频`: https://v.youku.com/v_show/id_XMzc4OTYwNDM2OA==.html?spm=a2h3j.8428770.3416059.1
