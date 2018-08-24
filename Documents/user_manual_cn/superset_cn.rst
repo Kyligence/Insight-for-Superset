@@ -42,7 +42,7 @@ Kyligence Insight for Superset的使用方法。
 
 使用 **分割符号** 的方式导入，选择文件原始格式为 **从UTF-8** |image26|
 
-选择分隔符为* *逗号** |image27|
+选择分隔符为 **逗号** |image27|
 
 即可正常显示中文 |image28|
 
