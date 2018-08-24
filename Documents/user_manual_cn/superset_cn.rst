@@ -29,6 +29,23 @@ Kyligence Insight for Superset的使用方法。
 
 比如选择饼图 |image5|
 
+导出CSV文件
+--------
+
+在数据探索页面点击CSV按钮即可导出CSV  |image29|
+
+在SQL实验室页面点击CSV按钮即可导出CSV  |image30|
+
+注：使用EXCEL打开标准UTF-8编码的CSV文件的方法为：
+
+点击**数据**-**从文本** |image25|
+
+使用**分割符号**的方式导入，选择文件原始格式为**从UTF-8** |image26|
+
+选择分隔符为**逗号** |image27|
+
+即可正常显示中文 |image28|
+
 保存与分享
 ----------
 
@@ -101,3 +118,7 @@ Kyligence的管理员用户默认为Superset的管理员(Admin)，拥有全部�
 .. |image21| image:: ../images/user_manual_cn/22.png
 .. |image22| image:: ../images/user_manual_cn/23.png
 .. |image23| image:: ../images/user_manual_cn/24.png
+.. |image25| image:: ../images/user_manual_cn/25.png
+.. |image26| image:: ../images/user_manual_cn/26.png
+.. |image27| image:: ../images/user_manual_cn/27.png
+.. |image28| image:: ../images/user_manual_cn/28.png
