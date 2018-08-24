@@ -39,6 +39,25 @@ Click **Visualization Type** to change the visualization chart type.
 
 Such as ‘Pie Chart’ |image5|
 
+
+EXPORT CSV
+--------
+
+Export CSV by clicking the CSV button on the explore page  |image27|
+
+Export CSV by clicking the CSV button on the SQL Lab page |image28|
+
+Note: The method of opening a standard UTF-8 encoded CSV file using EXCEL is:
+
+Click **Data** - **From text** |image29|
+
+Import using the **Delimited**, select the original format of the file as **UTF-8** |image30|
+
+Select **Comma** as delimiters |image31|
+
+As a result ,Characters of all languages are displayed normally |image32|
+
+
 Save and share
 --------------
 
@@ -128,3 +147,12 @@ As a result , ANALYST users do not have permission to download CSV
 .. |image23| image:: ../images/user_manual_en/20.png
 .. |image24| image:: ../images/user_manual_en/21.png
 .. |image25| image:: ../images/user_manual_en/04.png
+.. |image27| image:: ../images/user_manual_en/27.png
+.. |image28| image:: ../images/user_manual_en/28.png
+.. |image29| image:: ../images/user_manual_en/29.png
+.. |image30| image:: ../images/user_manual_en/30.png
+.. |image31| image:: ../images/user_manual_en/31.png
+.. |image32| image:: ../images/user_manual_en/32.png
+
+
+
