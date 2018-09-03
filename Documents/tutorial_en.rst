@@ -59,11 +59,11 @@ In the quick start section above, we did not use an external database as the met
 1. (Optional) If you don't have a MySQL instance, you can use docker to start one. If you already have a MySQL service, you can skip this step. ::
 
      $ docker pull mysql:5.7
-     $ docker run -itd -e -p <local port>:3306 MYSQL_ROOT_PASSWORD=<database password> -e MYSQL_DATABASE=<database name> --name <database container name> mysql:5.7
+     $ docker run -itd -p <local port>:3306 -e MYSQL_ROOT_PASSWORD=<database password> -e MYSQL_DATABASE=<database name> --name <database container name> mysql:5.7
 
      e.g.:
      $ docker pull mysql:5.7
-     $ docker run -itd -e -p 3306:3306 MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=superset --name superset-db mysql:5.7
+     $ docker run -itd -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=superset --name superset-db mysql:5.7
 
 2. Get the latest version of Kyligence Insight for Superset image: ::
 
@@ -84,7 +84,7 @@ In the quick start section above, we did not use an external database as the met
      -v /<absloute path>/default.yaml:/usr/local/superset/data/default.yaml \
      --name <container name> \
      kyligence/superset-kylin:latest
-     
+
      ### If you are using MySQL started with Docker, then it is:
 
      $ docker run -it -p 8088:8088 \
