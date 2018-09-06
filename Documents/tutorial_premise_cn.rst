@@ -86,7 +86,7 @@
      --name superset-kylin \
      kyligence/superset-kylin:premises
 
-5. 现在本地8088端口已经开启了一个Kyligence Insight for Superset服务了, 可以通过docker ps -a 来验证Kyligence Insight for Superset容器是否正常启动 ::
+3. 现在本地8088端口已经开启了一个Kyligence Insight for Superset服务了, 可以通过docker ps -a 来验证Kyligence Insight for Superset容器是否正常启动 ::
 
      $ docker ps -a
      ONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS                            PORTS                    NAMES
