@@ -86,7 +86,7 @@ In the quick start section above, we did not use an external database as the met
      --name superset-kylin \
      kyligence/superset-kylin:premises
 
-5. The local port 8088 should be open for Kyligence Insight for Superset service, you can verify it with the docker ps command. ::
+3. The local port 8088 should be open for Kyligence Insight for Superset service, you can verify it with the docker ps command. ::
 
      $ docker ps -a
      ONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS                            PORTS                    NAMES
