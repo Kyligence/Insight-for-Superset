@@ -25,5 +25,5 @@ English
 .. _`Kyligence Insight for Superset User Manual`: ./Documents/user_manual_en/superset_en.rst
 .. _`Kyligence Insight for Superset Introduction`: ./Documents/introduction_en.rst
 .. _`Kyligence Insight for Superset 简介`: ./Documents/introduction_cn.rst
-.. _`Kyligence Insight for Superset Demo Video`: https://youtu.be/xDrbib-X9ho
-.. _`Kyligence Insight for Superset Demo 视频`: https://v.youku.com/v_show/id_XMzc4OTYwNDM2OA==.html?spm=a2h3j.8428770.3416059.1
+.. _`Kyligence Insight for Superset Demo Video`: https://www.youtube.com/watch?v=fTNZs56Vs8k
+.. _`Kyligence Insight for Superset Demo 视频`: https://v.qq.com/x/page/a0706ebsf4w.html
