@@ -17,7 +17,7 @@ If you want to use interactive map(base on MapBox), you also need to prepare a `
 You will also need to know the hostname and port of Kylin instance. The administrator of Kylin cluster should be able to provide you this information.
 
 
-Modify default.yaml
+Modify insight.default.yaml
 ===================
 Go to the config file you have download(or created) above, and modify it due to your environment. ::
 
@@ -37,12 +37,12 @@ Quick Start
 
 As you've done all the preparations above, let us start Kyligence Insight for Superset with the following command ::
 
-  $ docker run -it -p <local port>:8088 -e -v /<absloute path>/default.yaml:/usr/local/superset/data/default.yaml --name <container name> kyligence/superset-kylin:latest
+  $ docker run -it -p <local port>:8088 -e -v /<absloute path>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name <container name> kyligence/superset-kylin:latest
 
 
   e.g. go the directory where default.yaml locate, then run :
 
-  $ docker run -it -p 8088:8088 -v `pwd`/default.yaml:/usr/local/superset/data/default.yaml --name superset-kylin kyligence/superset-kylin:latest
+  $ docker run -it -p 8088:8088 -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
 
 
 After executing the command successfully, you can type Ctrl+P and Ctrl+Q continuously, so that docker can run as a daemon process.
@@ -81,7 +81,7 @@ In the quick start section above, we did not use an external database as the met
 
      $ docker run -it -p <local port>:8088 \
      --link <database container name>:<database host name> \
-     -v /<absloute path>/default.yaml:/usr/local/superset/data/default.yaml \
+     -v /<absloute path>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
      --name <container name> \
      kyligence/superset-kylin:latest
 
@@ -89,7 +89,7 @@ In the quick start section above, we did not use an external database as the met
 
      $ docker run -it -p 8088:8088 \
      --link superset-db:superset-db \
-     -v `pwd`/default.yaml:/usr/local/superset/data/default.yaml \
+     -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
      --name superset-kylin \
      kyligence/superset-kylin:latest
 
@@ -185,4 +185,4 @@ If you encounter any problems , you can **create a issue** at the following link
 .. _`Install Docker for Mac`: https://docs.docker.com/docker-for-mac/install/
 .. _`Install Docker for CentOS`: https://docs.docker.com/install/linux/docker-ce/centos/
 .. _`Mapbox Token`: https://www.mapbox.com/help/how-access-tokens-work/
-.. _`Kyligence Insight for Superset config file`: https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/default.yaml
+.. _`Kyligence Insight for Superset config file`: https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/insight.default.yaml

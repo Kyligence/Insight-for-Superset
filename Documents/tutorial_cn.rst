@@ -9,7 +9,7 @@
 
 需要注册一下 `Kyligence Account`_ 账户, 以便您免费激活Kyligence Insight for Superset.
 
-最后需要下载一下 `Kyligence Insight for Superset配置文件`_ (或者新建一个default.yaml文件，拷贝链接内的内容到新文件), 以便配置Superset各种启动参数.
+最后需要下载一下 `Kyligence Insight for Superset配置文件`_ (或者新建一个insight.default.yaml文件，拷贝链接内的内容到新文件), 以便配置Superset各种启动参数.
 
 如果您想使用MapBox交互式地图服务, 还需要准备一个 `Mapbox Token`_ (可选项)
 
@@ -19,7 +19,7 @@
 修改配置文件
 ============
 
-找到下载的default.yaml文件, 根据自己环境进行配置 ::
+找到下载的insight.default.yaml文件, 根据自己环境进行配置 ::
 
   superset:
     sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
@@ -37,10 +37,10 @@
 
 到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
-  $ docker run -it -p <本地端口>:8088 -v /<绝对路径>/default.yaml:/usr/local/superset/data/default.yaml --name <容器名称> kyligence/superset-kylin:latest
+  $ docker run -it -p <本地端口>:8088 -v /<绝对路径>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name <容器名称> kyligence/superset-kylin:latest
 
   例如:
-  $ docker run -it -p 8088:8088 -v `pwd`/default.yaml:/usr/local/superset/data/default.yaml --name superset-kylin kyligence/superset-kylin:latest
+  $ docker run -it -p 8088:8088 -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
 
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
@@ -77,7 +77,7 @@
 
      $ docker run -it -p <本机端口>:8088 \
      --link <db container name>:<db container name> \
-     -v /<绝对路径>/default.yaml:/usr/local/superset/data/default.yaml \
+     -v /<绝对路径>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
      --name <容器名称> \
      kyligence/superset-kylin:latest
 
@@ -85,7 +85,7 @@
 
      $ docker run -it -p 8088:8088 \
      --link superset-db:superset-db \
-     -v `pwd`/default.yaml:/usr/local/superset/data/default.yaml \
+     -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
      --name superset-kylin \
      kyligence/superset-kylin:latest
 
@@ -113,7 +113,7 @@
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
 
-default.yaml 配置
+insight.default.yaml 配置
 ==================
 
 ============================= ============================================
@@ -181,6 +181,6 @@ Kyligence Insight for Superset使用
 .. _`Install Docker for Mac`: https://docs.docker.com/docker-for-mac/install/
 .. _`Install Docker for CentOS`: https://docs.docker.com/install/linux/docker-ce/centos/
 .. _`Mapbox Token`: https://www.mapbox.com/help/how-access-tokens-work/
-.. _`Kyligence Insight for Superset配置文件`: https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/default.yaml
+.. _`Kyligence Insight for Superset配置文件`: https://raw.githubusercontent.com/Kyligence/Insight-for-Superset/master/insight.default.yaml
 
 
