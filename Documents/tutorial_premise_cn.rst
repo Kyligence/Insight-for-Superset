@@ -38,7 +38,7 @@
 
            $ vi conf/insight.default.yaml 
 
-找到下载的insight.default.yaml文件, 根据自己环境进行配置 ::
+根据自己环境进行配置insight.default.yaml文件 ::
 
   superset:
     sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
