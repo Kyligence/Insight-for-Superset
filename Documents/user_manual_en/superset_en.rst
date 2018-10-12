@@ -15,7 +15,7 @@ Open the sueprset interface and enter the default username and password admin/ad
 Import/Refresh cube
 -------------------
 
-Firstly,need to add a connection string for the Kyligence project at the **Data Sources - Database** |image33|
+Firstly,need to add a connection string for the Kyligence project at the **Sources-Database** |image33|
 
 The format of the database URL is **kylin://username:password@host:port/project**. If you need to use the table in the project in the SQL Lab, you need to check ’Expose in SQL Lab‘.  |image34|
 
