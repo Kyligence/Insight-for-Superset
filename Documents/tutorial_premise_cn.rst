@@ -12,31 +12,32 @@
 
 安装Kyligence Insight for Superset
 ==================================
-1.首先在 `Kyligence下载页`_ 下载 Supserset 安装包
+1. 首先在 `Kyligence下载页`_ 下载 Supserset 安装包
 
-2.解压安装包::
+2. 解压安装包::
 
-           $ tar -xf [安装包文件名]
+     $ tar -xf [安装包文件名]
 
-             如:
+     如:
 
-           $ tar -xf Insight-Linux-x86_64-0.10.2.tar.gz
+     $ tar -xf Insight-Linux-x86_64-0.12.0.tar.gz
 
-3.进入解压后的目录，并设置当前所在目录为环境变量 SUPERSET_HOME::
+3. 进入解压后的目录，并设置当前所在目录为环境变量 SUPERSET_HOME::
 
-           $ export SUPERSET_HOME=`pwd`
+     $ cd Insight-Linux-x86_64-0.12.0
+     $ export SUPERSET_HOME=`pwd`
 
-4.开始安装Superset的依赖项::
+4. 安装Superset, 安装时会创建默认用户admin, 密码admin的superset账户::
 
-           $ bin/bootstrap.sh install [Linux发行版]
+     $ bin/bootstrap.sh install [Linux发行版]
 
-             如:
+     如:
 
-           $ bin/bootstrap.sh install centos7
+     $ bin/bootstrap.sh install centos7
 
-5.修改./conf文件夹下的Superset的配置文件::
+5. 修改./conf文件夹下的Superset的配置文件::
 
-           $ vi conf/insight.default.yaml 
+     $ vi conf/insight.default.yaml
 
 根据自己环境进行配置insight.default.yaml文件 ::
 
@@ -44,63 +45,66 @@
     sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
     sqllab_timeout: <SQLLab超时时间(秒)>
     mapbox_api_key: <mapbox token>
-    kap_host: <填入Kylin主机名或者IP>
-    kap_port: <Kylin 端口>
-    kap_endpoint: /kylin/api
-    kap_api_version: v1
 
+6. (可选项) Superset启动时默认占用8099端口，如果需要修改，请修改./conf文件夹下的gunicorn_config.py 文件中的端口配置 ::
 
-6.(可选项) Superset启动时默认占用8099端口，如果需要修改，请修改./conf文件夹下的gunicorn_config.py 文件中的端口配置 :: 
-            
-          $ vi conf/gunicorn_config.py
- 
-7.启动Superset ::
+   $ vi conf/gunicorn_config.py
 
-          $ bin/bootstrap.sh start
- 
+7. 启动Superset ::
+
+     $ bin/bootstrap.sh start
+
+8. 停止Superset ::
+
+     $ bin/bootstrap.sh stop
+
 升级 Kyligence Insight for Superset
 ===================================
-1.备份元数据及配置文件 ::
+1. 备份元数据及配置文件 ::
 
-          $ cp [Superset安装目录]/superset.db [备份目标文件夹]/superset.db
+     $ cp [Superset安装目录]/superset.db [备份目标文件夹]/superset.db
 
-          $ cp [Superset安装目录]/conf/insight.default.yaml  [备份目标文件夹]/insight.default.yaml 
+     $ cp [Superset安装目录]/conf/insight.default.yaml  [备份目标文件夹]/insight.default.yaml 
 
-2.停止应用 ::
+2. 停止应用 ::
 
-          $ [Superset安装目录]/bin/bootstrap.sh stop
-
-
-3.卸载应用 ::
-
-          $ [Superset安装目录]/bin/bootstrap.sh uninstall
-
-4.删除整个Insight目录 ::
-
-          $ rm -rf [Superset安装目录]
-
-5.下载新的安装包并解压,进入解压后的目录，并设置当前所在目录为环境变量 SUPERSET_HOME::
-
-           $ export SUPERSET_HOME=`pwd`
-
-6.开始安装Superset的依赖项 ::
-
-          $ bin/bootstrap.sh install [Linux发行版]
-
-             如:
-
-          $ bin/bootstrap.sh install centos7
-
-7.将元数据及配置文件放回到新的安装目录下 ::
-
-          $ cp -f [备份目标文件夹]/superset.db ./superset.db
-
-          $ cp -f [备份目标文件夹]/insight.default.yaml ./conf/insight.default.yaml 
+     $ [Superset安装目录]/bin/bootstrap.sh stop
 
 
-8.启动应用 ::
+3. 卸载应用 ::
 
-          $ bin/bootstrap.sh start
+     $ [Superset安装目录]/bin/bootstrap.sh uninstall
+
+4. 删除整个Insight目录 ::
+
+     $ rm -rf [Superset安装目录]
+
+5. 下载新的安装包并解压,进入解压后的目录，并设置当前所在目录为环境变量 SUPERSET_HOME::
+
+     $ export SUPERSET_HOME=`pwd`
+
+6. 开始安装Superset的依赖项 ::
+
+     $ bin/bootstrap.sh install [Linux发行版]
+
+     如:
+
+     $ bin/bootstrap.sh install centos7
+
+7. 将元数据及配置文件放回到新的安装目录下 ::
+
+     $ cp -f [备份目标文件夹]/superset.db ./superset.db
+
+     $ cp -f [备份目标文件夹]/insight.default.yaml ./conf/insight.default.yaml 
+
+
+8. 启动应用 ::
+
+     $ bin/bootstrap.sh start
+
+8. 停止Superset ::
+
+     $ bin/bootstrap.sh stop
 
 
 Kyligence Insight for Superset使用

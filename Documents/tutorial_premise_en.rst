@@ -12,31 +12,32 @@ If you deploy offline, MapBox related visualizations will not be available becau
 
 Install Kyligence Insight for Superset
 ======================================
-1.Download installation package of Supserset in `Kyligence Download Page`_ .
+1. Download installation package of Supserset in `Kyligence Download Page`_ .
 
-2.Unzip the installation package ::
+2. Unzip the installation package ::
 
-           $ tar -xf [Package Name]
+     $ tar -xf [Package Name]
 
-             e.g. :
+     e.g. :
 
-           $ tar -xf Insight-Linux-x86_64-0.11.0.tar.gz
+     $ tar -xf Insight-Linux-x86_64-0.12.0.tar.gz
 
-3.Enter the decompressed directory and set the current directory as the environment variable SUPERSET_HOME ::
+3. Enter the decompressed directory and set the current directory as the environment variable SUPERSET_HOME ::
 
-           $ export SUPERSET_HOME=`pwd`
+     $ cd Insight-Linux-x86_64-0.12.0
+     $ export SUPERSET_HOME=`pwd`
 
-4.Install the dependencies of the Superset ::
+4. Install the dependencies of the Superset ::
 
-           $ bin/bootstrap.sh install [Linux distribution]
+     $ bin/bootstrap.sh install [Linux distribution]
 
-             e.g. :
+     e.g. :
 
-           $ bin/bootstrap.sh install centos7
+     $ bin/bootstrap.sh install centos7
 
-5.Modify the configuration file of the superset under the ./conf folder ::
+5. Modify the configuration file of the superset under the ./conf folder ::
 
-           $ vi conf/insight.default.yaml 
+     $ vi conf/insight.default.yaml
 
 Find the insight.default.yaml file and configure it according to your environment ::
 
@@ -44,64 +45,67 @@ Find the insight.default.yaml file and configure it according to your environmen
     sqlalchemy_database_uri: <SQLAlchemy DSN, if empty, superset will use SQLlite instead>
     sqllab_timeout: <SQLLab timeout>
     mapbox_api_key: <mapbox token>
-    kap_host: <Kylin hostname or IP>
-    kap_port: <Kylin port>
-    kap_endpoint: /kylin/api
-    kap_api_version: v1
 
-6.(Optional) Superset starts up to port 8099 by default. If you need to modify it, please modify the port configuration in the gunicorn_config.py file under the ./conf folder. :: 
-            
-          $ vi conf/gunicorn_config.py
- 
-7.Start Superset ::
+6. (Optional) Superset starts up to port 8099 by default. If you need to modify it, please modify the port configuration in the gunicorn_config.py file under the ./conf folder. ::
 
-          $ bin/bootstrap.sh start
- 
+     $ vi conf/gunicorn_config.py
+
+7. Start Superset ::
+
+     $ bin/bootstrap.sh start
+
+8. Stop Superset ::
+
+     $ bin/bootstrap.sh stop
+
 
 Upgrade Kyligence Insight for Superset
 ======================================
-1.Backup metadata and configuration files ::
+1. Backup metadata and configuration files ::
 
-          $ cp [Superset installation directory]/superset.db [Backup destination folder]/superset.db
+     $ cp [Superset installation directory]/superset.db [Backup destination folder]/superset.db
 
-          $ cp [Superset installation directory]/conf/insight.default.yaml  [Backup destination folder]/insight.default.yaml 
+     $ cp [Superset installation directory]/conf/insight.default.yaml  [Backup destination folder]/insight.default.yaml 
 
-2.Stop Application ::
+2. Stop Application ::
 
-          $ [Superset installation directory]/bin/bootstrap.sh stop
-
-
-3.Uninstall Application ::
-
-          $ [Superset installation directory]/bin/bootstrap.sh uninstall
-
-4.Delete the entire Insight directory ::
-
-          $ rm -rf [Superset installation directory]
-
-5.Download the new installation package and extract it , Enter the decompressed directory and set the current directory as the environment variable SUPERSET_HOME ::
-
-           $ export SUPERSET_HOME=`pwd`
-
-6.Install the dependencies of the Superset ::
-
-          $ bin/bootstrap.sh install [Linux distribution]
-
-             e.g. :
-
-          $ bin/bootstrap.sh install centos7
-
-7.Put the metadata and configuration files back into the new installation directory ::
-
-          $ cp -f [Backup destination folder]/superset.db  ./superset.db
-
-          $ cp -f [Backup destination folder]/insight.default.yaml ./conf/insight.default.yaml 
+     $ [Superset installation directory]/bin/bootstrap.sh stop
 
 
-8.Start Application ::
+3. Uninstall Application ::
 
-          $ bin/bootstrap.sh start
+     $ [Superset installation directory]/bin/bootstrap.sh uninstall
 
+4. Delete the entire Insight directory ::
+
+     $ rm -rf [Superset installation directory]
+
+5. Download the new installation package and extract it , Enter the decompressed directory and set the current directory as the environment variable SUPERSET_HOME ::
+
+     $ export SUPERSET_HOME=`pwd`
+
+6. Install the dependencies of the Superset ::
+
+     $ bin/bootstrap.sh install [Linux distribution]
+
+     e.g. :
+
+     $ bin/bootstrap.sh install centos7
+
+7. Put the metadata and configuration files back into the new installation directory ::
+
+     $ cp -f [Backup destination folder]/superset.db  ./superset.db
+
+     $ cp -f [Backup destination folder]/insight.default.yaml ./conf/insight.default.yaml 
+
+
+8. Start Application ::
+
+     $ bin/bootstrap.sh start
+
+8. Stop Superset ::
+
+     $ bin/bootstrap.sh stop
 
 
 How to use Kyligence Insight for Superset
