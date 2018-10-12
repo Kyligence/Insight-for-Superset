@@ -24,6 +24,11 @@
 
 3. 进入解压后的目录，并设置当前所在目录为环境变量 SUPERSET_HOME::
 
+     $ cd [解压后的目录名]
+     $ export SUPERSET_HOME=`pwd`
+     
+     如:
+     
      $ cd Insight-Linux-x86_64-0.12.0
      $ export SUPERSET_HOME=`pwd`
 
@@ -105,32 +110,6 @@
 8. 停止Superset ::
 
      $ bin/bootstrap.sh stop
-
-
-Kyligence Insight for Superset使用
-==================================
-
-如果您按照向导部署Kyligence Insight for Superset, 那么现在已经可以通过浏览器访问 http://127.0.0.1:8088 打开Kyligence Insight for Superset
-
-1. 请直接使用Kylin账户和密码登录Kyligence Insight for Superset
-
-   .. image:: images/Insight_login_cn.png
-
-2. 点击 Refresh Kylin Cubes，同步Kylin的cube
-
-   .. image:: images/Insight_refresh_cn.png
-
-3. 点击 Kylin Cubes，列出可供查询的cube
-
-   .. image:: images/Insight_list_cubes_cn.png
-
-4. 点击 需要查询的Cube的名称，即可直接查询 Cube
-
-   .. image:: images/Insight_explore_cn.png
-
-5. 在SQL实验室 中使用SQL自由查询
-
-   .. image:: images/Insight_SQLLab_cn.png
 
 
 用如果您在使用时遇到任何问题，可在如下链接 **创建一个issue** 将问题反馈给我们：https://github.com/Kyligence/Insight-for-Superset/issues
