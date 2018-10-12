@@ -18,7 +18,7 @@ You will also need to know the hostname and port of Kylin instance. The administ
 
 
 Modify insight.default.yaml
-===================
+============================
 Go to the config file you have download(or created) above, and modify it due to your environment. ::
 
   superset:
@@ -33,18 +33,21 @@ Quick Start
 
 As you've done all the preparations above, let us start Kyligence Insight for Superset with the following command ::
 
-  $ docker run -it -p <local port>:8099 -e -v /<absloute path>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name <container name> kyligence/superset-kylin:latest
+  $ docker run -it -p <local port>:8099 -e -v /<absloute path>/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name <container name> kyligence/superset-kylin:latest
 
 
   e.g. go the directory where default.yaml locate, then run :
 
-  $ docker run -it -p 8099:8099 -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
+  $ docker run -it -p 8099:8099 -v `pwd`/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
 
 
 After executing the command successfully, you can type Ctrl+P and Ctrl+Q continuously, so that docker can run as a daemon process.
 
-Now open a browser window and go to http://127.0.0.1:8099 You can log in to Kyligence Insight for Superset with the same username and password you use to access Kylin.
+We need to create a superset default admin account ::
 
+  $ docker exec -it superset-kylin bin/create-admin.sh
+
+Now open a browser window and go to http://127.0.0.1:8099 You can login to Kyligence Insight for Superset by admin/admin.
 
 
 Use MySQL as metadata store to start Kyligence Insight for Superset
@@ -77,7 +80,7 @@ In the quick start section above, we did not use an external database as the met
 
      $ docker run -it -p <local port>:8099 \
      --link <database container name>:<database host name> \
-     -v /<absloute path>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
+     -v /<absloute path>/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml \
      --name <container name> \
      kyligence/superset-kylin:latest
 
@@ -85,7 +88,7 @@ In the quick start section above, we did not use an external database as the met
 
      $ docker run -it -p 8099:8099 \
      --link superset-db:superset-db \
-     -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
+     -v `pwd`/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml \
      --name superset-kylin \
      kyligence/superset-kylin:latest
 
@@ -111,6 +114,10 @@ In the quick start section above, we did not use an external database as the met
      3b059d2723cb        kyligence/superset-kylin:latest   "bootstrap.sh"           2 days ago          Up 3 seconds (health: starting)   0.0.0.0:8099->8099/tcp   superset-kylin
 
 You can type Ctrl+P and Ctrl+Q continuously to make docker run as a daemon process.
+
+7. We need to create a superset default admin account ::
+
+  $ docker exec -it superset-kylin bin/create-admin.sh
 
 
 default.yaml Paramaters

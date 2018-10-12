@@ -33,14 +33,18 @@
 
 到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
-  $ docker run -it -p <本地端口>:8099 -v /<绝对路径>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name <容器名称> kyligence/superset-kylin:latest
+  $ docker run -it -p <本地端口>:8099 -v /<绝对路径>/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name <容器名称> kyligence/superset-kylin:latest
 
   例如:
-  $ docker run -it -p 8099:8099 -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
+  $ docker run -it -p 8099:8099 -v `pwd`/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
 
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
-现在打开浏览器访问http://127.0.0.1:8099 , 使用Kylin的用户名和密码即可登录Kyligence Insight for Superset.
+我们还需要创建一个superset默认的admin账户 ::
+
+   $ docker exec -it superset-kylin bin/create-admin.sh
+
+现在打开浏览器访问http://127.0.0.1:8099 , 使用admin/admin即可登录Kyligence Insight for Superset.
 
 
 使用MySQL作为元数据启动Kyligence Insight for Superset
@@ -73,7 +77,7 @@
 
      $ docker run -it -p <本机端口>:8099 \
      --link <db container name>:<db container name> \
-     -v /<绝对路径>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
+     -v /<绝对路径>/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml \
      --name <容器名称> \
      kyligence/superset-kylin:latest
 
@@ -81,7 +85,7 @@
 
      $ docker run -it -p 8099:8099 \
      --link superset-db:superset-db \
-     -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
+     -v `pwd`/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml \
      --name superset-kylin \
      kyligence/superset-kylin:latest
 
@@ -107,6 +111,10 @@
      3b059d2723cb        kyligence/superset-kylin:latest   "bootstrap.sh"           2 days ago          Up 3 seconds (health: starting)   0.0.0.0:8099->8099/tcp   superset-kylin
 
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
+
+7. 我们还需要创建一个superset默认的admin账户 ::
+
+   $ docker exec -it superset-kylin bin/create-admin.sh
 
 
 insight.default.yaml 配置
