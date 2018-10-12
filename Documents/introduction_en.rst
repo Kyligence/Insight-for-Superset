@@ -67,26 +67,23 @@ speed up time-to-insight.\ |image3|\ Beyond Superset, Kyligence Insight
 for Superset provides following features that differentiate between
 itself and Superset.
 
-| 1. Integrated user permission with Kyligence or Kylin. With no
-additional user credential and permission needed in the BI front-end,
-users can simply log in with their Kyligence or Kylin user credentials.
 
-| 2. Sync Kyligence or Kylin Cube with one click. With one click in
+| Sync Kyligence or Kylin Cube with one click. With one click in
 Kyligence Insight for Superset, users can sync Kyligence or Kylin Cube
 immediately and start analyzing Cube instantly.
 
-| 3. Support querying on multiple table data model on Kyligence or Kylin
+| Support querying on multiple table data model on Kyligence or Kylin
 Cube. The User can analyze Cube with either star schema data model or
 snowflake schema data model.
 
-| 4. Deploy Superset with Docker. Users may easily deploy, maintain and
+| Deploy Superset with Docker. Users may easily deploy, maintain and
 upgrade Kyligence Insight for Superset with Docker.
 
-| 5. Fine-tuned query syntax for Kyligence or Kylin query engine. Query
+| Fine-tuned query syntax for Kyligence or Kylin query engine. Query
 pattern is fine-tuned to work best on Kyligence or Kylin data engine.
 
 
 .. |image0| image:: ./images/Introduction_en/01.png
 .. |image1| image:: ./images/Introduction_en/02.png
 .. |image2| image:: ./images/Introduction_en/03.png
-.. |image3| image:: ./images/Introduction_en/04.jpg
+.. |image3| image:: ./images/Introduction_en/04.png

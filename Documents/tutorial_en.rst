@@ -132,32 +132,6 @@ sqllab_timeout                  SQLLab timeout(second)
 ============================= ============================================
 
 
-How to use Kyligence Insight for Superset
-=========================================
-
-Once you start Kyligence Insight for Superset, you can start a browser window to access its user interface.
-
-1. Login with Kylin username and password
-
-   .. image:: images/Insight_login_en.png
-
-2. Click Kylin Refresh to synchronize cubes in Kylin
-
-   .. image:: images/Insight_refresh_en.png
-
-3. Click Kylin Cubes to list all available cubes
-
-   .. image:: images/Insight_list_cubes_en.png
-
-4. Click the name of a cube, you can start query the cube
-
-   .. image:: images/Insight_explore_en.png
-
-5. Edit and run your query in SQL Lab
-
-   .. image:: images/Insight_SQLLab_en.png
-
-
 Upgrade
 ========
 

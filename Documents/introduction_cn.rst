@@ -51,14 +51,13 @@ Kyligence Insight for Superset
 
 相比原生Superset, Kyligence的"Superset" 提供了如下增强功能：
 
-| 1.
-  统一用户管理，用户无需在“Superset”上额外创建用户和赋予权限，统一在Kyligence/Kylin后端管理用户访问权限，直接使用Kyligence/Kylin
-  账户登录Superset
-| 2. 一键同步Kyligence/Kylin
+
+| 一键同步Kyligence/Kylin
   Cube，无需在Superset端重新定义数据模型，直接查询Cube
-| 3. 支持多表连接模型，支持inner join和outer join。
-| 4. Docker容器化部署Superset，一键启动，降低部署和升级门槛。
-| 5. 自动适配Kyligence/Kylin 查询语法
+| 支持多表连接模型，支持inner join和outer join
+| 支持Docker容器化部署，一键启动，降低部署和升级门槛
+| 支持离线部署，无需安装任何环境依赖
+| 自动适配Kyligence/Kylin 查询语法
 
 .. |image0| image:: ./images/Introduction_cn/01.png
 
@@ -66,5 +65,5 @@ Kyligence Insight for Superset
    
 .. |image2| image:: ./images/Introduction_cn/03.png
 
-.. |image3| image:: ./images/Introduction_cn/04.jpg
+.. |image3| image:: ./images/Introduction_cn/04.png
    

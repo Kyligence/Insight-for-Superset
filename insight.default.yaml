@@ -2,7 +2,3 @@ superset:
   sqlalchemy_database_uri:
   sqllab_timeout: 120
   mapbox_api_key:
-  kap_host:
-  kap_port: 7070
-  kap_endpoint: /kylin/api
-  kap_api_version: v1

@@ -25,6 +25,7 @@ Install Kyligence Insight for Superset
 3. Enter the decompressed directory and set the current directory as the environment variable SUPERSET_HOME ::
 
      $ cd Insight-Linux-x86_64-0.12.0
+
      $ export SUPERSET_HOME=`pwd`
 
 4. Install the dependencies of the Superset ::
@@ -39,12 +40,12 @@ Install Kyligence Insight for Superset
 
      $ vi conf/insight.default.yaml
 
-Find the insight.default.yaml file and configure it according to your environment ::
+   Find the insight.default.yaml file and configure it according to your environment ::
 
-  superset:
-    sqlalchemy_database_uri: <SQLAlchemy DSN, if empty, superset will use SQLlite instead>
-    sqllab_timeout: <SQLLab timeout>
-    mapbox_api_key: <mapbox token>
+     superset:
+       sqlalchemy_database_uri: <SQLAlchemy DSN, if empty, superset will use SQLlite instead>
+       sqllab_timeout: <SQLLab timeout>
+       mapbox_api_key: <mapbox token>
 
 6. (Optional) Superset starts up to port 8099 by default. If you need to modify it, please modify the port configuration in the gunicorn_config.py file under the ./conf folder. ::
 
@@ -82,6 +83,10 @@ Upgrade Kyligence Insight for Superset
 
 5. Download the new installation package and extract it , Enter the decompressed directory and set the current directory as the environment variable SUPERSET_HOME ::
 
+     $ tar -xf [Package name]
+
+     $ cd [Superset installation directory]
+
      $ export SUPERSET_HOME=`pwd`
 
 6. Install the dependencies of the Superset ::
@@ -107,31 +112,6 @@ Upgrade Kyligence Insight for Superset
 
      $ bin/bootstrap.sh stop
 
-
-How to use Kyligence Insight for Superset
-=========================================
-
-Once you start Kyligence Insight for Superset, you can start a browser window to access its user interface.
-
-1. Login with Kylin username and password
-
-   .. image:: images/Insight_login_en.png
-
-2. Click Kylin Refresh to synchronize cubes in Kylin
-
-   .. image:: images/Insight_refresh_en.png
-
-3. Click Kylin Cubes to list all available cubes
-
-   .. image:: images/Insight_list_cubes_en.png
-
-4. Click the name of a cube, you can start query the cube
-
-   .. image:: images/Insight_explore_en.png
-
-5. Edit and run your query in SQL Lab
-
-   .. image:: images/Insight_SQLLab_en.png
 
 If you encounter any problems while using, you can click on the link below **Create an issue** Send us your questions: https://github.com/Kyligence/Insight-for-Superset/issues
 

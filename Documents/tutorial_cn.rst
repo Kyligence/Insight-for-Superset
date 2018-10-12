@@ -31,7 +31,7 @@
 
 **特别注意** , 如果您用 **快速上手** 章节启动的Kyligence Insight for Superset, 您是无法升级的. 因为您的元数据没有做外部存储.
 
-到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
+到insight.default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
   $ docker run -it -p <本地端口>:8099 -v /<绝对路径>/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name <容器名称> kyligence/superset-kylin:latest
 
@@ -128,31 +128,6 @@ sqlalchemy_database_uri         Superset metadata DSN
 sqllab_timeout                  SQLLab timeout(second)
 ============================= ============================================
 
-
-Kyligence Insight for Superset使用
-==================================
-
-如果您按照向导部署Kyligence Insight for Superset, 那么现在已经可以通过浏览器访问 http://127.0.0.1:8099 打开Kyligence Insight for Superset
-
-1. 请直接使用Kylin账户和密码登录Kyligence Insight for Superset
-
-   .. image:: images/Insight_login_cn.png
-
-2. 点击 Refresh Kylin Cubes，同步Kylin的cube
-
-   .. image:: images/Insight_refresh_cn.png
-
-3. 点击 Kylin Cubes，列出可供查询的cube
-
-   .. image:: images/Insight_list_cubes_cn.png
-
-4. 点击 需要查询的Cube的名称，即可直接查询 Cube
-
-   .. image:: images/Insight_explore_cn.png
-
-5. 在SQL实验室 中使用SQL自由查询
-
-   .. image:: images/Insight_SQLLab_cn.png
 
 
 升级方式

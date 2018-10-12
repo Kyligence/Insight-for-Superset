@@ -25,11 +25,13 @@
 3. 进入解压后的目录，并设置当前所在目录为环境变量 SUPERSET_HOME::
 
      $ cd [解压后的目录名]
+
      $ export SUPERSET_HOME=`pwd`
      
      如:
      
      $ cd Insight-Linux-x86_64-0.12.0
+
      $ export SUPERSET_HOME=`pwd`
 
 4. 安装Superset, 安装时会创建默认用户admin, 密码admin的superset账户::
@@ -44,13 +46,13 @@
 
      $ vi conf/insight.default.yaml
 
-根据自己环境进行配置insight.default.yaml文件 ::
+   根据自己环境进行配置insight.default.yaml文件 ::
 
-  superset:
-    sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
-    sqllab_timeout: <SQLLab超时时间(秒)>
-    mapbox_api_key: <mapbox token>
-
+     superset:
+       sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
+       sqllab_timeout: <SQLLab超时时间(秒)>
+       mapbox_api_key: <mapbox token>
+  
 6. (可选项) Superset启动时默认占用8099端口，如果需要修改，请修改./conf文件夹下的gunicorn_config.py 文件中的端口配置 ::
 
    $ vi conf/gunicorn_config.py
@@ -85,6 +87,10 @@
      $ rm -rf [Superset安装目录]
 
 5. 下载新的安装包并解压,进入解压后的目录，并设置当前所在目录为环境变量 SUPERSET_HOME::
+
+     $ tar -xf [安装包文件名]
+
+     $ cd [解压后的目录名]
 
      $ export SUPERSET_HOME=`pwd`
 
