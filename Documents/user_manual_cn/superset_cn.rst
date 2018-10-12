@@ -14,7 +14,7 @@ Kyligence Insight for Superset的使用方法。
 -------------
 首先需要在 **数据源- 数据库** 处增加Kyligence的项目的连接串 |image31|
 
-其中，数据库URL的格式为 **kylin://username:password@host:port/project** ，如果您需要在SQL实验中使用该项目中的表，则需要勾选 在SQL实验室中显示|image32|
+其中，数据库URL的格式为 **kylin://username:password@host:port/project** ，如果您需要在SQL实验中使用该项目中的表，则需要勾选 在SQL实验室中显示  |image32|
 
 在Superset界面内点击 **数据源- Kylin 数据源刷新**，即可导入/刷新所有已经增加的项目下的cube |image1|
 
@@ -83,9 +83,6 @@ Kyligence Insight for Superset的使用方法。
 
 修改权限
 --------
-
-Kyligence的管理员用户默认为Superset的管理员(Admin)，拥有全部管理权限，其他用户为分析师权限(Alpha)，有创建报表和查询仪表板权限
-|image18|
 
 在 **安全 - 角色列表** 中可以创建/编辑用户角色 |image19|
 

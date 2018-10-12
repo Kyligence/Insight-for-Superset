@@ -17,9 +17,7 @@ Import/Refresh cube
 
 Firstly,need to add a connection string for the Kyligence project at the **Data Sources - Database** |image33|
 
-其中，数据库URL的格式为 **kylin://username:password@host:port/project** ，如果您需要在SQL实验中使用该项目中的表，则需要勾选 在SQL实验室中显示|image34|
-
-The format of the database URL is **kylin://username:password@host:port/project**. If you need to use the table in the project in the SQL Lab, you need to check ’Expose in SQL Lab‘| Image34|
+The format of the database URL is **kylin://username:password@host:port/project**. If you need to use the table in the project in the SQL Lab, you need to check ’Expose in SQL Lab‘.  | Image34|
 
 Click **Sources-Kylin Refresh** in the Superset interface to
 import/refresh all cubes. |image1|
@@ -110,11 +108,6 @@ Query using new custom dimensions and metrics. |image20|
 
 Modify permissions
 ------------------
-
-Kyligence's administrator user defaults to the superset administrator
-(Admin), with full administrative privileges, other users as analyst
-permissions (Alpha), with permissions of creating report and querying
-dashboard. |image21|
 
 Roles can be created/edited in the **Security-List Roles**, such as
 editing the permissions of Alpha , deleting the permissions that can be
