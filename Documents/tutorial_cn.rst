@@ -25,10 +25,6 @@
     sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
     sqllab_timeout: <SQLLab超时时间>
     mapbox_api_key: <mapbox token>
-    kap_host: <填入Kylin主机名或者IP>
-    kap_port: <Kylin 端口>
-    kap_endpoint: /kylin/api
-    kap_api_version: v1
 
 快速上手
 ========
@@ -37,14 +33,14 @@
 
 到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
-  $ docker run -it -p <本地端口>:8088 -v /<绝对路径>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name <容器名称> kyligence/superset-kylin:latest
+  $ docker run -it -p <本地端口>:8099 -v /<绝对路径>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name <容器名称> kyligence/superset-kylin:latest
 
   例如:
-  $ docker run -it -p 8088:8088 -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
+  $ docker run -it -p 8099:8099 -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
 
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
-现在打开浏览器访问http://127.0.0.1:8088 , 使用Kylin的用户名和密码即可登录Kyligence Insight for Superset.
+现在打开浏览器访问http://127.0.0.1:8099 , 使用Kylin的用户名和密码即可登录Kyligence Insight for Superset.
 
 
 使用MySQL作为元数据启动Kyligence Insight for Superset
@@ -75,7 +71,7 @@
 
 4. 到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
-     $ docker run -it -p <本机端口>:8088 \
+     $ docker run -it -p <本机端口>:8099 \
      --link <db container name>:<db container name> \
      -v /<绝对路径>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
      --name <容器名称> \
@@ -83,7 +79,7 @@
 
      ### 如果您是使用先前Docker启动的MySQL, 那么启动容器命令为:
 
-     $ docker run -it -p 8088:8088 \
+     $ docker run -it -p 8099:8099 \
      --link superset-db:superset-db \
      -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
      --name superset-kylin \
@@ -104,33 +100,23 @@
      Please enter password: 输入KyAccount密码
 
 
-6. 现在本地8088端口已经开启了一个Kyligence Insight for Superset服务了, 可以通过docker ps -a 来验证Kyligence Insight for Superset容器是否正常启动 ::
+6. 现在本地8099端口已经开启了一个Kyligence Insight for Superset服务了, 可以通过docker ps -a 来验证Kyligence Insight for Superset容器是否正常启动 ::
 
      $ docker ps -a
      ONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS                            PORTS                    NAMES
-     3b059d2723cb        kyligence/superset-kylin:latest   "bootstrap.sh"           2 days ago          Up 3 seconds (health: starting)   0.0.0.0:8088->8088/tcp   superset-kylin
+     3b059d2723cb        kyligence/superset-kylin:latest   "bootstrap.sh"           2 days ago          Up 3 seconds (health: starting)   0.0.0.0:8099->8099/tcp   superset-kylin
 
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
 
 insight.default.yaml 配置
-==================
+==========================
 
 ============================= ============================================
 key                              comments
 ============================= ============================================
-kap_host                        Kylin host
------------------------------ --------------------------------------------
-kap_port	                    Kylin port
------------------------------ --------------------------------------------
-kap_endpoint	                Kylin API prefix
------------------------------ --------------------------------------------
-kap_api_version                 Kylin API version <v1|v2>
------------------------------ --------------------------------------------
 mapbox_api_key                  Mapbox API token
------------------------------ --------------------------------------------
 sqlalchemy_database_uri         Superset metadata DSN
------------------------------ --------------------------------------------
 sqllab_timeout                  SQLLab timeout(second)
 ============================= ============================================
 
@@ -138,7 +124,7 @@ sqllab_timeout                  SQLLab timeout(second)
 Kyligence Insight for Superset使用
 ==================================
 
-如果您按照向导部署Kyligence Insight for Superset, 那么现在已经可以通过浏览器访问 http://127.0.0.1:8088 打开Kyligence Insight for Superset
+如果您按照向导部署Kyligence Insight for Superset, 那么现在已经可以通过浏览器访问 http://127.0.0.1:8099 打开Kyligence Insight for Superset
 
 1. 请直接使用Kylin账户和密码登录Kyligence Insight for Superset
 

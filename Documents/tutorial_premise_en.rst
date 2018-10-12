@@ -50,7 +50,7 @@ Find the insight.default.yaml file and configure it according to your environmen
 
      $ vi conf/gunicorn_config.py
 
-7. Start Superset ::
+7. Start Superset, The first start Supuerset will update the metadata and takes a few minutes. ::
 
      $ bin/bootstrap.sh start
 
@@ -96,14 +96,14 @@ Upgrade Kyligence Insight for Superset
 
      $ cp -f [Backup destination folder]/superset.db  ./superset.db
 
-     $ cp -f [Backup destination folder]/insight.default.yaml ./conf/insight.default.yaml 
+     $ cp -f [Backup destination folder]/insight.default.yaml ./conf/insight.default.yaml
 
 
 8. Start Application ::
 
      $ bin/bootstrap.sh start
 
-8. Stop Superset ::
+9. Stop Superset ::
 
      $ bin/bootstrap.sh stop
 

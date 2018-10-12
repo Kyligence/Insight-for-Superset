@@ -25,10 +25,6 @@ Go to the config file you have download(or created) above, and modify it due to 
     sqlalchemy_database_uri: <SQLAlchemy DSN, if empty, superset will use SQLlite instead>
     sqllab_timeout: <SQLLab timeout>
     mapbox_api_key: <mapbox token>
-    kap_host: <Kylin hostname or IP>
-    kap_port: <Kylin port>
-    kap_endpoint: /kylin/api
-    kap_api_version: v1
 
 Quick Start
 ===========
@@ -37,17 +33,17 @@ Quick Start
 
 As you've done all the preparations above, let us start Kyligence Insight for Superset with the following command ::
 
-  $ docker run -it -p <local port>:8088 -e -v /<absloute path>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name <container name> kyligence/superset-kylin:latest
+  $ docker run -it -p <local port>:8099 -e -v /<absloute path>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name <container name> kyligence/superset-kylin:latest
 
 
   e.g. go the directory where default.yaml locate, then run :
 
-  $ docker run -it -p 8088:8088 -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
+  $ docker run -it -p 8099:8099 -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
 
 
 After executing the command successfully, you can type Ctrl+P and Ctrl+Q continuously, so that docker can run as a daemon process.
 
-Now open a browser window and go to http://127.0.0.1:8088. You can log in to Kyligence Insight for Superset with the same username and password you use to access Kylin.
+Now open a browser window and go to http://127.0.0.1:8099 You can log in to Kyligence Insight for Superset with the same username and password you use to access Kylin.
 
 
 
@@ -79,7 +75,7 @@ In the quick start section above, we did not use an external database as the met
 
 4. Then we can launch the container of Kyligence Insight for Superset with the following: ::
 
-     $ docker run -it -p <local port>:8088 \
+     $ docker run -it -p <local port>:8099 \
      --link <database container name>:<database host name> \
      -v /<absloute path>/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
      --name <container name> \
@@ -87,7 +83,7 @@ In the quick start section above, we did not use an external database as the met
 
      ### If you are using MySQL started with Docker, then it is:
 
-     $ docker run -it -p 8088:8088 \
+     $ docker run -it -p 8099:8099 \
      --link superset-db:superset-db \
      -v `pwd`/insight.default.yaml:/usr/local/superset/data/insight.default.yaml \
      --name superset-kylin \
@@ -108,33 +104,23 @@ In the quick start section above, we did not use an external database as the met
 
      Please enter password: password
 
-6. The local port 8088 should be open for Kyligence Insight for Superset service, you can verify it with the docker ps command. ::
+6. The local port 8099 should be open for Kyligence Insight for Superset service, you can verify it with the docker ps command. ::
 
      $ docker ps -a
      ONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS                            PORTS                    NAMES
-     3b059d2723cb        kyligence/superset-kylin:latest   "bootstrap.sh"           2 days ago          Up 3 seconds (health: starting)   0.0.0.0:8088->8088/tcp   superset-kylin
+     3b059d2723cb        kyligence/superset-kylin:latest   "bootstrap.sh"           2 days ago          Up 3 seconds (health: starting)   0.0.0.0:8099->8099/tcp   superset-kylin
 
 You can type Ctrl+P and Ctrl+Q continuously to make docker run as a daemon process.
 
 
 default.yaml Paramaters
-=======================
+=========================
 
 ============================= ============================================
 key                              comments
 ============================= ============================================
-kap_host                        Kylin host
------------------------------ --------------------------------------------
-kap_port	                    Kylin port
------------------------------ --------------------------------------------
-kap_endpoint	                Kylin API prefix
------------------------------ --------------------------------------------
-kap_api_version                 Kylin API version <v1|v2>
------------------------------ --------------------------------------------
 mapbox_api_key                  Mapbox API token
------------------------------ --------------------------------------------
 sqlalchemy_database_uri         Superset metadata DSN
------------------------------ --------------------------------------------
 sqllab_timeout                  SQLLab timeout(second)
 ============================= ============================================
 

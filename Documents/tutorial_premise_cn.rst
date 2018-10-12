@@ -50,7 +50,7 @@
 
    $ vi conf/gunicorn_config.py
 
-7. 启动Superset ::
+7. 启动Superset, 首次启动会更新metadata, 需要几分钟. ::
 
      $ bin/bootstrap.sh start
 
