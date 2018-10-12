@@ -8,13 +8,15 @@ Kyligence Insight for Superset的使用方法。
 登录
 ----
 
-打开sueprset界面，输入Kyligence中的用户名和密码即可登录 |image0|
+打开sueprset界面，输入默认管理员的用户名和密码 admin/admin 即可登录 |image0|
 
 导入/刷新cube
 -------------
+首先需要在 **数据源- 数据库** 处增加Kyligence的项目的连接串 |image31|
 
-在Superset界面内点击 **数据源- Kylin 数据源刷新**
-，即可导入/刷新全部cube |image1|
+其中，数据库URL的格式为 **kylin://username:password@host:port/project** ，如果您需要在SQL实验中使用该项目中的表，则需要勾选 在SQL实验室中显示|image32|
+
+在Superset界面内点击 **数据源- Kylin 数据源刷新**，即可导入/刷新所有已经增加的项目下的cube |image1|
 
 刷新成功后会自动进入 **数据源- Kylin Cubes** 界面，显示全部cube |image2|
 
@@ -124,3 +126,5 @@ Kyligence的管理员用户默认为Superset的管理员(Admin)，拥有全部�
 .. |image28| image:: ../images/user_manual_cn/28.png
 .. |image29| image:: ../images/user_manual_cn/29.png
 .. |image30| image:: ../images/user_manual_cn/30.png
+.. |image31| image:: ../images/user_manual_cn/31.png
+.. |image32| image:: ../images/user_manual_cn/32.png

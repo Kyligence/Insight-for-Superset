@@ -37,26 +37,24 @@ Superset 具有如下特点：
 Kyligence Insight for Superset
 ^^^^^^^
 
-| 为了服务Kyligence /Kylin
-  的用户，Kyligence开发了定制版的Superset：Kyligence Insight for
-  Superset （以下简称
-  Superset），它的出现丰富了Kylin生态圈，使得Kyligence/
-  Kylin的用户多了一种选择。
+| 为了服务Kyligence /Kylin的用户，Kyligence开发了定制版的Superset：Kyligence Insight for Superset （以下简称Superset），它的出现丰富了Kylin生态圈，使得Kyligence/Kylin的用户多了一种选择。
+
 
 |image3|
 
-"Superset" 与Kyligence /Kylin实现无缝对接，直接通过Kyligence
-/Kylin账号登录，一键同步cube并在
-"Superset"上进行数据探索及可视化，省去反复建模的重复工作，尽享极速，高效的大数据分析体验。
+"Superset" 与Kyligence/Kylin实现无缝对接，直接通过Kyligence/Kylin账号登录，一键同步cube并在"Superset"上进行数据探索及可视化，省去反复建模的重复工作，尽享极速，高效的大数据分析体验。
 
 相比原生Superset, Kyligence的"Superset" 提供了如下增强功能：
 
 
-| 一键同步Kyligence/Kylin
-  Cube，无需在Superset端重新定义数据模型，直接查询Cube
+| 一键同步Cube，无需在Superset端重新定义数据模型，直接查询Cube
+
 | 支持多表连接模型，支持inner join和outer join
+
 | 支持Docker容器化部署，一键启动，降低部署和升级门槛
+
 | 支持离线部署，无需安装任何环境依赖
+
 | 自动适配Kyligence/Kylin 查询语法
 
 .. |image0| image:: ./images/Introduction_cn/01.png

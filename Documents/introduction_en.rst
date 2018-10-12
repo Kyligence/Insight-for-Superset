@@ -41,11 +41,9 @@ its users:
 
 | 2. Eye-catching dashboards and D3-based extendable visualizations.
 
-| 3. Fully-fledged reporting features: filtering, sorting, page-by and
-etc.
+| 3. Fully-fledged reporting features: filtering, sorting, page-by and etc.
 
-| 4. Enterprise-ready features: sharing, exporting, portal integration and
-reports permission.
+| 4. Enterprise-ready features: sharing, exporting, portal integration and reports permission.
 
 | 5. Customizable reporting dimension and measures.
 
@@ -68,19 +66,15 @@ for Superset provides following features that differentiate between
 itself and Superset.
 
 
-| Sync Kyligence or Kylin Cube with one click. With one click in
-Kyligence Insight for Superset, users can sync Kyligence or Kylin Cube
-immediately and start analyzing Cube instantly.
+| Sync Kyligence or Kylin Cube with one click. With one click in Kyligence Insight for Superset, users can sync Kyligence or Kylin Cube immediately and start analyzing Cube instantly.
 
-| Support querying on multiple table data model on Kyligence or Kylin
-Cube. The User can analyze Cube with either star schema data model or
-snowflake schema data model.
+| Support querying on multiple table data model on Kyligence or Kylin Cube. The User can analyze Cube with either star schema data model or snowflake schema data model.
 
-| Deploy Superset with Docker. Users may easily deploy, maintain and
-upgrade Kyligence Insight for Superset with Docker.
+| Support deploy Superset with Docker. Users may easily deploy, maintain and upgrade Kyligence Insight for Superset with Docker.
 
-| Fine-tuned query syntax for Kyligence or Kylin query engine. Query
-pattern is fine-tuned to work best on Kyligence or Kylin data engine.
+| Support offline deployment without installing any environment dependencies.
+
+| Fine-tuned query syntax for Kyligence or Kylin query engine. Query pattern is fine-tuned to work best on Kyligence or Kylin data engine.
 
 
 .. |image0| image:: ./images/Introduction_en/01.png

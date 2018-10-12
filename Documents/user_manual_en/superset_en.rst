@@ -10,11 +10,16 @@ for Superset step by step.
 log in
 ------
 
-Open the sueprset interface and enter the username and password in
-Kyligence to log in. |image0|
+Open the sueprset interface and enter the default username and password admin/admin to log in. |image0|
 
 Import/Refresh cube
 -------------------
+
+Firstly,need to add a connection string for the Kyligence project at the **Data Sources - Database** |image33|
+
+其中，数据库URL的格式为 **kylin://username:password@host:port/project** ，如果您需要在SQL实验中使用该项目中的表，则需要勾选 在SQL实验室中显示|image34|
+
+The format of the database URL is **kylin://username:password@host:port/project**. If you need to use the table in the project in the SQL Lab, you need to check ’Expose in SQL Lab‘| Image34|
 
 Click **Sources-Kylin Refresh** in the Superset interface to
 import/refresh all cubes. |image1|
@@ -153,6 +158,8 @@ As a result , ANALYST users do not have permission to download CSV
 .. |image30| image:: ../images/user_manual_en/30.png
 .. |image31| image:: ../images/user_manual_en/31.png
 .. |image32| image:: ../images/user_manual_en/32.png
+.. |image33| image:: ../images/user_manual_en/33.png
+.. |image34| image:: ../images/user_manual_en/34.png
 
 
 
