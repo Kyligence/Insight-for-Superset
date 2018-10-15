@@ -57,7 +57,7 @@
 
    $ vi conf/gunicorn_config.py
 
-7. 启动Superset, 首次启动会更新metadata, 需要几分钟. ::
+7. 启动Superset, 首次启动会需要几分钟的时间来更新元数据  ::
 
      $ bin/bootstrap.sh start
 
@@ -109,11 +109,11 @@
      $ cp -f [备份目标文件夹]/insight.default.yaml ./conf/insight.default.yaml 
 
 
-8. 启动应用 ::
+8. 启动Superset ::
 
      $ bin/bootstrap.sh start
 
-8. 停止Superset ::
+9. 停止Superset ::
 
      $ bin/bootstrap.sh stop
 
