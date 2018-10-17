@@ -6,7 +6,6 @@ English
 * `Installing from offline package`_
 * `Installing from Docker container`_
 * `Kyligence Insight for Superset Introduction`_
-* `Kyligence Insight for Superset Demo Video`_
 * `Kyligence Insight for Superset User Manual`_
 
 中文
@@ -14,7 +13,6 @@ English
 * `使用离线包安装`_
 * `使用Docker容器安装`_
 * `Kyligence Insight for Superset 简介`_
-* `Kyligence Insight for Superset Demo 视频`_
 * `Kyligence Insight for Superset 使用手册`_
 
 .. _`使用Docker容器安装`: ./Documents/tutorial_cn.rst
