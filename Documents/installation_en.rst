@@ -10,44 +10,29 @@ This guide shows you how to get a quick start with Kyligence Insight for Superse
 
 It also requires sign up for a `Kyligence Account`_, then you can activate Kyligence Insight for Superset for free.
 
-And then you need to download this file `Kyligence Insight for Superset config file`_ (or you can just create a file called 'default.yaml' locally,  then copy the content in the config file mentioned above), so that we can make some config to bootstrap Superset.
-
 If you want to use interactive map(base on MapBox), you also need to prepare a `Mapbox Token`_ which is optional if you don't use interactive map.
 
-You will also need to know the hostname and port of Kylin instance. The administrator of Kylin cluster should be able to provide you this information.
-
-
-Modify insight.default.yaml
-============================
-Go to the config file you have download(or created) above, and modify it due to your environment. ::
-
-  superset:
-    sqlalchemy_database_uri: <SQLAlchemy DSN, if empty, superset will use SQLlite instead>
-    sqllab_timeout: <SQLLab timeout>
-    mapbox_api_key: <mapbox token>
 
 Quick Start
 ===========
 
 **Note:** you would not be able to upgrade `Kyligence Insight for Superset` with quick start launch, because you don't have external metadata store configured.
 
-As you've done all the preparations above, let us start Kyligence Insight for Superset with the following command ::
+1. As you've done all the preparations above, let us start Kyligence Insight for Superset with the following command ::
 
-  $ docker run -it -p <local port>:8099 -e -v /<absloute path>/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name <container name> kyligence/superset-kylin:latest
+  $ docker run -it -p <local port>:8099 --name <container name> kyligence/superset-kylin:latest
 
+  e.g. :
 
-  e.g. go the directory where default.yaml locate, then run :
-
-  $ docker run -it -p 8099:8099 -v `pwd`/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
-
+  $ docker run -it -p 8099:8099 --name superset-kylin kyligence/superset-kylin:latest
 
 After executing the command successfully, you can type Ctrl+P and Ctrl+Q continuously, so that docker can run as a daemon process.
 
-We need to create a superset default admin account ::
+2. We need to create a superset default admin account ::
 
   $ docker exec -it superset-kylin bin/create-admin.sh
 
-Now open a browser window and go to http://127.0.0.1:8099 You can login to Kyligence Insight for Superset by admin/admin.
+3. Now open a browser window and go to http://127.0.0.1:8099 You can login to Kyligence Insight for Superset by admin/admin.
 
 
 Use MySQL as metadata store to start Kyligence Insight for Superset
@@ -55,7 +40,15 @@ Use MySQL as metadata store to start Kyligence Insight for Superset
 
 In the quick start section above, we did not use an external database as the meta store of Kyligence Insight for Superset. If you want to operate it long run or upgrade it in the future, please setup an external database as the metadata store. In the following, we will use MySQL as an example to show you how to setup an external metadata store. 
 
-1. (Optional) If you don't have a MySQL instance, you can use docker to start one. If you already have a MySQL service, you can skip this step. ::
+1. Create a new file called 'insight.default.yaml', then copy the content in the config file mentioned above, so that we can make some config to bootstrap Superset. ::
+
+  superset:
+    sqlalchemy_database_uri: <SQLAlchemy DSN, if empty, superset will use SQLlite instead>
+    sqllab_timeout: <SQLLab timeout>
+    mapbox_api_key: <mapbox token>
+
+
+2. (Optional) If you don't have a MySQL instance, you can use docker to start one. If you already have a MySQL service, you can skip this step. ::
 
      $ docker pull mysql:5.7
      $ docker run -itd -p <local port>:3306 -e MYSQL_ROOT_PASSWORD=<database password> -e MYSQL_DATABASE=<database name> --name <database container name> mysql:5.7
@@ -64,11 +57,11 @@ In the quick start section above, we did not use an external database as the met
      $ docker pull mysql:5.7
      $ docker run -itd -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=superset --name superset-db mysql:5.7
 
-2. Get the latest version of Kyligence Insight for Superset image: ::
+3. Get the latest version of Kyligence Insight for Superset image: ::
 
      $ docker pull kyligence/superset-kylin:latest
 
-3. Prepare the MySQL connection string, so that Kyligence Insight for Superset can connect to the MySQL instance and store metadata there: ::
+4. Prepare the MySQL connection string, so that Kyligence Insight for Superset can connect to the MySQL instance and store metadata there: ::
 
      mysql://<db username>:<db password>@<database host name>:<db port>/<database>
 
@@ -76,7 +69,7 @@ In the quick start section above, we did not use an external database as the met
 
      mysql://root:root@superset-db:3306/superset
 
-4. Then we can launch the container of Kyligence Insight for Superset with the following: ::
+5. Then we can launch the container of Kyligence Insight for Superset with the following: ::
 
      $ docker run -it -p <local port>:8099 \
      --link <database container name>:<database host name> \
@@ -92,7 +85,7 @@ In the quick start section above, we did not use an external database as the met
      --name superset-kylin \
      kyligence/superset-kylin:latest
 
-5. Follow the prompts to enter your Kyligence account credential, then you can start using Kyligence Insight for Superset. ::
+6. Follow the prompts to enter your Kyligence account credential, then you can start using Kyligence Insight for Superset. ::
 
      Welcome to Kyligence Insight for Superset!
      In order to activate your evaluation, you need to login with your Kyligence Account.
@@ -107,7 +100,7 @@ In the quick start section above, we did not use an external database as the met
 
      Please enter password: password
 
-6. The local port 8099 should be open for Kyligence Insight for Superset service, you can verify it with the docker ps command. ::
+7. The local port 8099 should be open for Kyligence Insight for Superset service, you can verify it with the docker ps command. ::
 
      $ docker ps -a
      ONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS                            PORTS                    NAMES
@@ -115,7 +108,7 @@ In the quick start section above, we did not use an external database as the met
 
 You can type Ctrl+P and Ctrl+Q continuously to make docker run as a daemon process.
 
-7. We need to create a superset default admin account ::
+8. We need to create a superset default admin account ::
 
   $ docker exec -it superset-kylin bin/create-admin.sh
 

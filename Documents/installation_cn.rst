@@ -9,42 +9,28 @@
 
 需要注册一下 `Kyligence Account`_ 账户, 以便您免费激活Kyligence Insight for Superset.
 
-最后需要下载一下 `Kyligence Insight for Superset配置文件`_ (或者新建一个insight.default.yaml文件，拷贝链接内的内容到新文件), 以便配置Superset各种启动参数.
-
 如果您想使用MapBox交互式地图服务, 还需要准备一个 `Mapbox Token`_ (可选项)
 
-当然您还需要知道Kylin主机名和端口, 这个可以询问Kylin集群管理员.
-
-
-修改配置文件
-============
-
-找到下载的insight.default.yaml文件, 根据自己环境进行配置 ::
-
-  superset:
-    sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
-    sqllab_timeout: <SQLLab超时时间>
-    mapbox_api_key: <mapbox token>
 
 快速上手
 ========
 
 **特别注意** , 如果您用 **快速上手** 章节启动的Kyligence Insight for Superset, 您是无法升级的. 因为您的元数据没有做外部存储.
 
-到insight.default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
+1. 到insight.default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
-  $ docker run -it -p <本地端口>:8099 -v /<绝对路径>/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name <容器名称> kyligence/superset-kylin:latest
+  $ docker run -it -p <本地端口>:8099 --name <容器名称> kyligence/superset-kylin:latest
 
   例如:
-  $ docker run -it -p 8099:8099 -v `pwd`/insight.default.yaml:/usr/local/superset/conf/insight.default.yaml --name superset-kylin kyligence/superset-kylin:latest
+  $ docker run -it -p 8099:8099 --name superset-kylin kyligence/superset-kylin:latest
 
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
-我们还需要创建一个superset默认的admin账户 ::
+2. 我们还需要创建一个superset默认的admin账户 ::
 
    $ docker exec -it superset-kylin bin/create-admin.sh
 
-现在打开浏览器访问http://127.0.0.1:8099 , 使用admin/admin即可登录Kyligence Insight for Superset.
+3. 现在打开浏览器访问http://127.0.0.1:8099 , 使用admin/admin即可登录Kyligence Insight for Superset.
 
 
 使用MySQL作为元数据启动Kyligence Insight for Superset
@@ -52,7 +38,15 @@
 
 在前面的快速上手部分, 我们没有使用外部数据库作为Kyligence Insight for Superset的元数据库, 如果您为了版本升级或运维方便, 请您使用外部数据库作为Kyligence Insight for Superset的元数据库, 现在以MySQL为例示范如何使用MySQL作为Kyligence Insight for Superset的元数据库.
 
-1. (可选项)如果您没有MySQL服务, 可以使用docker启动一个MySQL服务, 如果您已经有了MySQL服务那么这步可以跳过 ::
+1. 新建一个 insight.default.yaml 文件，拷贝以下内容到新文件, 以便配置Superset各种启动参数 ::
+
+  superset:
+    sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
+    sqllab_timeout: <SQLLab超时时间>
+    mapbox_api_key: <mapbox token>
+
+
+2. (可选项)如果您没有MySQL服务, 可以使用docker启动一个MySQL服务, 如果您已经有了MySQL服务那么这步可以跳过 ::
 
      $ docker pull mysql:5.7
      $ docker run -itd -p <local port>:3306 -e MYSQL_ROOT_PASSWORD=<database password> -e MYSQL_DATABASE=<database name> --name <container name> mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
@@ -61,11 +55,11 @@
      $ docker pull mysql:5.7
      $ docker run -itd -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=superset --name superset-db mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
-2. 获取Kyligence Insight for Superset镜像最新版 ::
+3. 获取Kyligence Insight for Superset镜像最新版 ::
 
      $ docker pull kyligence/superset-kylin:latest
 
-3. 准备一个MySQL的连接字符串, 以便Kyligence Insight for Superset使用MySQL元数据, 并且把这个字符串填入default.yaml中 ::
+4. 准备一个MySQL的连接字符串, 以便Kyligence Insight for Superset使用MySQL元数据, 并且把这个字符串填入default.yaml中 ::
 
      mysql://<db username>:<db password>@<db container name>:<db port>/<database>
 
@@ -73,7 +67,7 @@
 
      mysql://root:root@superset-db:3306/superset
 
-4. 到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
+5. 到default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
      $ docker run -it -p <本机端口>:8099 \
      --link <db container name>:<db container name> \
@@ -89,7 +83,7 @@
      --name superset-kylin \
      kyligence/superset-kylin:latest
 
-5. 按照提示输入您的Kyligence Account账户和密码, 以便免费使用Kyligence Insight for Superset ::
+6. 按照提示输入您的Kyligence Account账户和密码, 以便免费使用Kyligence Insight for Superset ::
 
      Welcome to Kyligence Insight for Superset!
      In order to activate your evaluation, you need to login with your Kyligence Account.
@@ -104,7 +98,7 @@
      Please enter password: 输入KyAccount密码
 
 
-6. 现在本地8099端口已经开启了一个Kyligence Insight for Superset服务了, 可以通过docker ps -a 来验证Kyligence Insight for Superset容器是否正常启动 ::
+7. 现在本地8099端口已经开启了一个Kyligence Insight for Superset服务了, 可以通过docker ps -a 来验证Kyligence Insight for Superset容器是否正常启动 ::
 
      $ docker ps -a
      ONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS                            PORTS                    NAMES
@@ -112,7 +106,7 @@
 
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
-7. 我们还需要创建一个superset默认的admin账户 ::
+8. 我们还需要创建一个superset默认的admin账户 ::
 
    $ docker exec -it superset-kylin bin/create-admin.sh
 
