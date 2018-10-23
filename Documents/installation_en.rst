@@ -20,17 +20,15 @@ Quick Start
 
 1. As you've done all the preparations above, let us start Kyligence Insight for Superset with the following command ::
 
-  $ docker run -it -p <local port>:8099 --name <container name> kyligence/superset-kylin:latest
-
-  e.g. :
-
-  $ docker run -it -p 8099:8099 --name superset-kylin kyligence/superset-kylin:latest
+    $ docker run -it -p <local port>:8099 --name <container name> kyligence/superset-kylin:latest
+    e.g. :
+    $ docker run -it -p 8099:8099 --name superset-kylin kyligence/superset-kylin:latest
 
 After executing the command successfully, you can type Ctrl+P and Ctrl+Q continuously, so that docker can run as a daemon process.
 
 2. We need to create a superset default admin account ::
 
-  $ docker exec -it superset-kylin bin/create-admin.sh
+    $ docker exec -it superset-kylin bin/create-admin.sh
 
 3. Now open a browser window and go to http://127.0.0.1:8099 You can login to Kyligence Insight for Superset by admin/admin.
 
@@ -42,11 +40,10 @@ In the quick start section above, we did not use an external database as the met
 
 1. Create a new file called 'insight.default.yaml', then copy the content in the config file mentioned above, so that we can make some config to bootstrap Superset. ::
 
-  superset:
-    sqlalchemy_database_uri: <SQLAlchemy DSN, if empty, superset will use SQLlite instead>
-    sqllab_timeout: <SQLLab timeout>
-    mapbox_api_key: <mapbox token>
-
+     superset:
+       sqlalchemy_database_uri: <SQLAlchemy DSN, if empty, superset will use SQLlite instead>
+       sqllab_timeout: <SQLLab timeout>
+       mapbox_api_key: <mapbox token>
 
 2. (Optional) If you don't have a MySQL instance, you can use docker to start one. If you already have a MySQL service, you can skip this step. ::
 

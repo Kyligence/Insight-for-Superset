@@ -19,16 +19,17 @@
 
 1. 到insight.default.yaml所在目录执行如下命令, 启动Kyligence Insight for Superset! ::
 
-  $ docker run -it -p <本地端口>:8099 --name <容器名称> kyligence/superset-kylin:latest
+    $ docker run -it -p <本地端口>:8099 --name <容器名称> kyligence/superset-kylin:latest
 
-  例如:
-  $ docker run -it -p 8099:8099 --name superset-kylin kyligence/superset-kylin:latest
+    例如:
+
+    $ docker run -it -p 8099:8099 --name superset-kylin kyligence/superset-kylin:latest
 
 启动成功后请连续使用组合键ctrl+p, ctrl+q, 以便docker做为后台进程运行.
 
 2. 我们还需要创建一个superset默认的admin账户 ::
 
-   $ docker exec -it superset-kylin bin/create-admin.sh
+    $ docker exec -it superset-kylin bin/create-admin.sh
 
 3. 现在打开浏览器访问http://127.0.0.1:8099 , 使用admin/admin即可登录Kyligence Insight for Superset.
 
@@ -40,10 +41,10 @@
 
 1. 新建一个 insight.default.yaml 文件，拷贝以下内容到新文件, 以便配置Superset各种启动参数 ::
 
-  superset:
-    sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
-    sqllab_timeout: <SQLLab超时时间>
-    mapbox_api_key: <mapbox token>
+     superset:
+       sqlalchemy_database_uri: <SQLAlchemy DSN, 如果留空会用文件数据库作为元数据库>
+       sqllab_timeout: <SQLLab超时时间>
+       mapbox_api_key: <mapbox token>
 
 
 2. (可选项)如果您没有MySQL服务, 可以使用docker启动一个MySQL服务, 如果您已经有了MySQL服务那么这步可以跳过 ::
