@@ -104,7 +104,15 @@ Superset内置了几个角色，主要是：
 在 **安全 - 角色列表** 中复制一个Gamma角色，重命名为Ming 
 
 2.赋予数据源权限
-然后点击编辑，增加权限项 : database access on [project_name],datasource access on [project_name],datasource access on [project_name].[cube_name]（注，每个需要查询的cube都要添加进去），然后点击保存 |image33|
+然后点击编辑，增加权限项 : 
+
+**database access on [project_name]**,
+
+**datasource access on [project_name]**,
+
+**datasource access on [project_name].[cube_name]** （注，每个需要查询的cube都要添加进去）
+
+然后点击保存 |image33|
 
 3.新建用户及赋予角色
 在 **安全 - 用户列表** 中新建一个用户，命名为Ming |image34|
@@ -123,7 +131,7 @@ Superset内置了几个角色，主要是：
 2.在Alpha_no_csv 角色中删除了 **can download on SliceModelView** 权限（导出CSV权限）
 |image20|
 
-3.在 **安全 - 用户列表** 中赋予ANALYST用户Alpha_no_csv 角色|image22|
+3.在 **安全 - 用户列表** 中赋予ANALYST用户Alpha_no_csv 角色
 
 更改后，ANALYST用户没有下载CSV的权限 |image23|
 
