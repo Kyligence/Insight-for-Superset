@@ -68,7 +68,7 @@ Kyligence Insight for Superset的使用方法。
 选择对应的数据库和表，输入SQL，点击 **运行查询** 即可得到查询结果
 |image11|
 
-在查询结果处选择 **可视化**\ ，可对查询结果集进行可视化 |image12|
+在查询结果处选择 **可视化** ，可对查询结果集进行可视化 |image12|
 
 自定义维度/度量
 ---------------
@@ -81,16 +81,44 @@ Kyligence Insight for Superset的使用方法。
 
 然后在列名列表处将新增维度勾选为 **可分组** ，**可筛选** 即可，同理可以增加自定义度量 
 
-修改权限
---------
+权限管理-数据源权限
+------------------
 
-在 **安全 - 角色列表** 中可以创建/编辑用户角色 |image19|
+除初始管理员用户外，您可以创建新的用户。在Superset中，通过修改角色权限，并给用户赋予角色的方式管理用户的权限。
 
-如复制了Alpha 角色，命名为Alpha\_no\_csv 角色，在Alpha\_no\_csv
+Superset内置了几个用户，主要是：
+
+**Admin(超级管理员)**，拥有所有管理权限，能够新建角色及用户，授予或撤销其他用户的权限。可以创建、修改、访问所有数据源,可以访问、修改所有仪表板。
+
+**Alpha(管理员)**，拥有部分管理权限，无法授予或撤销其他用户的权限。可以创建、修改、访问所有数据源。可以访问所有仪表板，只能修改自己有权访问的仪表板。
+
+**Gamma(分析师)**，拥有部分访问权限。 没有创建、修改用户及创建、修改数据源的权限。默认对所有数据源都没有访问权限，需要由Admin用户来授予。只能访问、修改自己有权访问的仪表板。
+
+所以，比如创建一个分析师用户Ming，则需要再建立一个角色，然后给他赋予角色：
+
+1.新建角色
+在 **安全 - 角色列表** 中复制一个Gamma角色，重命名为Ming 
+
+2.赋予数据源权限
+然后点击编辑，增加权限项 : database access on [project_name],datasource access on [project_name],datasource access on [project_name].[cube_name]（注，每个需要查询的cube都要添加进去），然后点击保存 |image33|
+
+3.新建用户及赋予角色
+在 **安全 - 用户列表** 中新建一个用户，命名为Ming |image34|
+
+填写相关信息，并赋予其角色为Ming，然后保存用户 |image35|
+
+
+
+权限管理-分析权限
+----------------
+
+在 **安全 - 角色列表** 中可以编辑用户角色 |image19|
+
+如复制了Alpha 角色，命名为Alpha_no_csv 角色，在Alpha_no_csv
 角色中删除了 **can download on SliceModelView** 权限（导出CSV权限）
 |image20|
 
-在 **安全 - 用户列表** 中赋予ANALYST用户Alpha\_no\_csv 角色 |image21|
+在 **安全 - 用户列表** 中赋予ANALYST用户Alpha_no_csv 角色 |image21|
 |image22|
 
 更改后，ANALYST用户没有下载CSV的权限 |image23|
@@ -125,3 +153,6 @@ Kyligence Insight for Superset的使用方法。
 .. |image30| image:: ../images/user_manual_cn/30.png
 .. |image31| image:: ../images/user_manual_cn/31.png
 .. |image32| image:: ../images/user_manual_cn/32.png
+.. |image33| image:: ../images/user_manual_cn/33.png
+.. |image34| image:: ../images/user_manual_cn/34.png
+.. |image35| image:: ../images/user_manual_cn/35.png
