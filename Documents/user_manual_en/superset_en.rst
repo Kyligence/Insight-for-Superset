@@ -112,9 +112,9 @@ Rights Management - Data Source Permissions
 
 Besides the initial administrator user, you can create new users. In Superset, you manage user permissions by creating, modifying roless and giving users roles.
 
-The roles can be edited in **Security - List Roles** |image19|
+The roles can be edited in **Security - List Roles** |image35|
 
-Users can be edited in **Security - List Users** |image21|
+Users can be edited in **Security - List Users** |image36|
 
 Super built-in several roles, mainly:
 
@@ -122,7 +122,7 @@ Super built-in several roles, mainly:
 
 **Alpha (Admin)** , with partial administrative privileges, cannot grant or revoke permissions from other users. Alpha can create, modify, and access all data sources. All dashboards can be accessed by Alpha.Alpha only can modify the dashboards that they have access to.
 
-** Gamma (analyst)** , with partial access privileges. They have no permissions to create, modify users and create , modify data sources. By default, they have no access to all data sources and need to be granted by the Admin user. Gamma can only access and modify the dashboards that you have access to.
+**Gamma (analyst)** , with partial access privileges. They have no permissions to create, modify users and create , modify data sources. By default, they have no access to all data sources and need to be granted by the Admin user. Gamma can only access and modify the dashboards that you have access to.
 
 For example, if you need to create an analyst user -Ming, you need to create another role, then create a new user and give him a role:
 
@@ -138,12 +138,13 @@ Copy a Gamma role in **Security - List Roles** and rename to Ming.
 
   **datasource access on [project_name].[cube_name]**  (Note, every cube that needs to be queried need be added)
 
-  Then click save |image33|
+  Then click save |image37|
 
 3.Create new users and assign roles
-  Create a new user in **Security - List Users**, named Ming |image34|
+  Create a new user in **Security - List Users**, named Ming |image38|
 
-  Fill in the relevant information and give the role of Ming, then save the user, the user can only access the authorized data source |image35|
+  Fill in the relevant information and give the role of Ming, then save the user, the user can only access the authorized data source.
+  |image39|
 
 
 Rights Management - Analysis Permissions
@@ -196,6 +197,13 @@ After the change, ANALYST users do not have permission to download CSV |image24|
 .. |image32| image:: ../images/user_manual_en/32.png
 .. |image33| image:: ../images/user_manual_en/33.png
 .. |image34| image:: ../images/user_manual_en/34.png
+.. |image35| image:: ../images/user_manual_en/35.png
+.. |image36| image:: ../images/user_manual_en/36.png
+.. |image37| image:: ../images/user_manual_en/37.png
+.. |image38| image:: ../images/user_manual_en/38.png
+.. |image39| image:: ../images/user_manual_en/39.png
+
+
 
 
 
