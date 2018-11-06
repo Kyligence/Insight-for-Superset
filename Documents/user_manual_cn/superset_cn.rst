@@ -3,12 +3,12 @@ Kyligence Insight for Superset 使用手册
 
 Kyligence Insight for Superset 是 Kyligence工程师深度定制的可视化工具，
 与Kyligence/Kylin无缝集成，一键同步cube并自动适配Kyligence/Kylin查询语法，本文将分步介绍
-Kyligence Insight for Superset的使用方法。
+Kyligence Insight for Superset的使用方法
 
 登录
 ----
 
-打开sueprset界面，输入默认管理员的用户名和密码 admin/admin 即可登录 |image0|
+首次登录，打开sueprset界面，输入默认管理员的用户名和密码 admin/admin 即可登录 |image0|
 
 导入/刷新cube
 -------------
@@ -98,42 +98,42 @@ Superset内置了几个角色，主要是：
 
 **Gamma(分析师)**，拥有部分访问权限。 没有创建、修改用户及创建、修改数据源的权限。默认对所有数据源都没有访问权限，需要由Admin用户来授予。只能访问、修改自己有权访问的仪表板。
 
-比如创建一个分析师用户Ming，则需要再建立一个角色，然后给他赋予角色：
+比如，如果需要创建一个分析师用户Ming，则需要再建立一个角色，然后新建一个用户，给他赋予角色：
 
 1.新建角色
-在 **安全 - 角色列表** 中复制一个Gamma角色，重命名为Ming 
+  在 **安全 - 角色列表** 中复制一个Gamma角色，重命名为Ming 
 
-2.赋予数据源权限
-然后点击编辑，增加权限项 : 
+2.给角色赋予数据源权限
+  然后点击编辑，增加权限项 : 
 
-**database access on [project_name]**,
+  **database access on [project_name]**,
 
-**datasource access on [project_name]**,
+  **datasource access on [project_name]**,
 
-**datasource access on [project_name].[cube_name]** （注，每个需要查询的cube都要添加进去）
+  **datasource access on [project_name].[cube_name]** （注，每个需要查询的cube都要添加进去）
 
-然后点击保存 |image33|
+  然后点击保存 |image33|
 
 3.新建用户及赋予角色
-在 **安全 - 用户列表** 中新建一个用户，命名为Ming |image34|
+  在 **安全 - 用户列表** 中新建一个用户，命名为Ming |image34|
 
-填写相关信息，并赋予其角色为Ming，然后保存用户即可，该用户就只能访问被赋权的数据源 |image35|
+  填写相关信息，并赋予其角色为Ming，然后保存用户即可，该用户就只能访问被赋权的数据源 |image35|
 
 
 
 权限管理-分析权限
 ----------------
 
-如需要禁用用户导出CSV的权限，则需要再建立一个角色，然后给他赋予角色：
+您可以通过修改角色的分析权限的方式更改用户的相关权限，比如，需要禁用用户导出CSV的权限，则需要再建立一个角色，然后给他赋予角色：
 
-1.复制了Alpha 角色，命名为Alpha_no_csv 角色
+1.复制了 Alpha 角色，命名为 Alpha_no_csv 角色
 
-2.在Alpha_no_csv 角色中删除了 **can download on SliceModelView** 权限（导出CSV权限）
+2.在 Alpha_no_csv 角色中删除了 **can download on SliceModelView** 权限（导出CSV权限）
 |image20|
 
-3.在 **安全 - 用户列表** 中赋予ANALYST用户Alpha_no_csv 角色
+3.在 **安全 - 用户列表** 中赋予 ANALYST 用户 Alpha_no_csv 角色
 
-更改后，ANALYST用户没有下载CSV的权限 |image23|
+  更改后，ANALYST用户没有下载CSV的权限 |image23|
 
 .. |image0| image:: ../images/user_manual_cn/01.png
 .. |image1| image:: ../images/user_manual_cn/02.png
