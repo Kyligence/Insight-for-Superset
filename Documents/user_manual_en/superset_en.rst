@@ -106,18 +106,61 @@ Similarly, you can add custom metrics. |image19|
 
 Query using new custom dimensions and metrics. |image20|
 
-Modify permissions
-------------------
 
-Roles can be created/edited in the **Security-List Roles**, such as
-editing the permissions of Alpha , deleting the permissions that can be
-downloaded in the SliceModelView (exporting CSV permissions) |image22|
+Rights Management - Data Source Permissions
+-------------------------------------------
 
-Granted the new role to ANALYST users in **Security-List Users**
-|image23|
+Besides the initial administrator user, you can create new users. In Superset, you manage user permissions by creating, modifying roless and giving users roles.
 
-As a result , ANALYST users do not have permission to download CSV
-|image24|
+The roles can be edited in **Security - List Roles** |image19|
+
+Users can be edited in **Security - List Users** |image21|
+
+Super built-in several roles, mainly:
+
+**Admin (Super Administrator)** , with all administrative privileges, having the ability to create new roles and users, grant or revoke permissions for other users.Admin can create, modify and have access to all data sources. Admin can access, and modify all dashboards.
+
+**Alpha (Admin)** , with partial administrative privileges, cannot grant or revoke permissions from other users. Alpha can create, modify, and access all data sources. All dashboards can be accessed by Alpha.Alpha only can modify the dashboards that they have access to.
+
+** Gamma (analyst)** , with partial access privileges. They have no permissions to create, modify users and create , modify data sources. By default, they have no access to all data sources and need to be granted by the Admin user. Gamma can only access and modify the dashboards that you have access to.
+
+For example, if you need to create an analyst user -Ming, you need to create another role, then create a new user and give him a role:
+
+1.Create a role
+Copy a Gamma role in **Security - List Roles** and rename to Ming.
+
+2.Give data source permissions to the role
+  Then click edit to add the permission item:
+
+  **database access on [project_name]**,
+
+  **datasource access on [project_name]**,
+
+  **datasource access on [project_name].[cube_name]**  (Note, every cube that needs to be queried need be added)
+
+  Then click save |image33|
+
+3.Create new users and assign roles
+  Create a new user in **Security - List Users**, named Ming |image34|
+
+  Fill in the relevant information and give the role of Ming, then save the user, the user can only access the authorized data source |image35|
+
+
+Rights Management - Analysis Permissions
+----------------------------------------
+
+You can change the user's related permissions by modifying the role's analysis permissions. For example, if you need to disable the user's ability to export CSV, you need to create another role and then give him the role:
+
+1.Copy the Alpha role and name Alpha_no_csv
+
+2.Removed **can download on SliceModelView** permission in the Alpha_no_csv role (export CSV permissions)
+|image22|
+
+3.Assign ANALYST user Alpha_no_csv role in **Security - List Users**
+
+After the change, ANALYST users do not have permission to download CSV |image24|
+
+
 
 .. |image0| image:: ../images/user_manual_en/01.png
 .. |image1| image:: ../images/user_manual_en/02.png

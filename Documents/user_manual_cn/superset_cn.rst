@@ -133,7 +133,7 @@ Superset内置了几个角色，主要是：
 
 3.在 **安全 - 用户列表** 中赋予 ANALYST 用户 Alpha_no_csv 角色
 
-  更改后，ANALYST用户没有下载CSV的权限 |image23|
+更改后，ANALYST用户没有下载CSV的权限 |image23|
 
 .. |image0| image:: ../images/user_manual_cn/01.png
 .. |image1| image:: ../images/user_manual_cn/02.png
